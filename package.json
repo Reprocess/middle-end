@@ -1,0 +1,19 @@
+{
+  "name": "next-news",
+  "engines": {
+    "ace": "beta"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "3.5.2",
+    "ms": "0.7.2",
+    "next": "2.0.0-beta.17",
+    "nprogress": "^0.2.0",
+    "url-parse": "1.1.7"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}

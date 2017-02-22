@@ -19,10 +19,10 @@ export default class extends React.Component {
 
     const { page, url, articles } = this.props
     const offset = (page - 1) * 12
-    console.log('page', page);
-    console.log('url', url);
+    // console.log('page', page);
+    // console.log('url', url);
     // console.log('articles', articles);
-    console.log('offset', offset);
+    // console.log('offset', offset);
     return <Page>
       <Articles page={page} offset={offset} articles={articles} />
     </Page>

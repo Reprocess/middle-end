@@ -2,10 +2,7 @@ import Article from './updating-article'
 import Link from 'next/prefetch'
 
 export default ({ articles, page=1, offset=null }) => {
-  console.log('dfshjkhjkdfshjkdfsjhkdfsjhk')
-  console.log('articles', articles)
-  console.log('page', page)
-  console.log('offset', offset)
+
   return (
   <div>
     {

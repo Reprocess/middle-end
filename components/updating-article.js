@@ -10,7 +10,11 @@ export default class extends React.Component {
   }
 
   componentDidMount () {
-    this.unsubscribe = observe(this.props.id, (data) => this.setState(data))
+    console.log('updating article did mount')
+    this.unsubscribe = observe(this.props.id, (data) => {
+      console.log('data inside observe callback, inside updating article js', data)
+      this.setState(data)
+    })
   }
 
   componentWillUnmount () {
@@ -18,6 +22,7 @@ export default class extends React.Component {
   }
 
   render () {
+    console.log('updating article did render')
     return <Article {...this.state} />
   }
 

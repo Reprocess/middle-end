@@ -13,6 +13,7 @@ export default class extends React.Component {
   }
 
   render () {
+    console.log('articles.js renders', this.props)
     const { page, url, articles } = this.props
     const offset = (page - 1) * 12
     return <Page>

@@ -13,6 +13,7 @@ export default class extends React.Component {
   }
 
   render () {
+    console.log('stories.js renders', this.props)
     const { page, url, stories } = this.props
     const offset = (page - 1) * 30
     return <Page>

@@ -7,7 +7,6 @@ export default () => (
     <Item href="/ask">ask</Item>
     <Item href="/jobs">jobs</Item>
     <Item href="/submit">submit</Item>
-    <Item href="/articles">articles</Item>
 
     <style jsx>{`
       ul {

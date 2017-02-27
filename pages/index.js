@@ -1,2 +1,2 @@
-import News from './news'
-export default News
+import Home from './home'
+export default Home

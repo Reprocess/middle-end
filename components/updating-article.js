@@ -12,7 +12,7 @@ export default class extends React.Component {
   componentDidMount () {
     console.log('updating article did mount')
     this.unsubscribe = observe(this.props.id, (data) => {
-      console.log('data inside observe callback, inside updating article js', data)
+      console.log('this does not get called, so forget this line', data)
       this.setState(data)
     })
   }
@@ -22,7 +22,7 @@ export default class extends React.Component {
   }
 
   render () {
-    console.log('updating article did render')
+    console.log('updating article did render', this.props)
     return <Article {...this.state} />
   }
 

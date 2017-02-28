@@ -1,4 +1,4 @@
-import Article from './updating-article'
+import ArticleTeaserReactive from './article-teaser-reactive'
 import Link from 'next/prefetch'
 
 export default ({ articles, page=1, offset=null }) => {
@@ -14,7 +14,7 @@ export default ({ articles, page=1, offset=null }) => {
               : null
           }
           <div className="article">
-            <Article {...article} />
+            <ArticleTeaserReactive {...article} />
           </div>
         </div>
       ))

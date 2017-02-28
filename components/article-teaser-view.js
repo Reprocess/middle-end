@@ -3,6 +3,7 @@ import timeAgo from '../lib/time-ago'
 import parse from 'url-parse'
 
 export default ({ id, title, date, url, user, score, commentsCount }) => {
+  console.log('ArticleTeaserView rendered', id)
   const { host } = parse(url)
   return <div>
     <div className="title">

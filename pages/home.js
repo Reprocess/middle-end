@@ -6,20 +6,16 @@ import getListOfArticles from '../lib/get-list-of-articles'
 export default class extends React.Component {
 
   static async getInitialProps ({ query, req }) {
-    const renderLocation = req ? 'Server' : 'Client'
-    console.log('home.js -> inside getInitial props rendered by the ', renderLocation)
-    console.log('home.js -> BEFORE the data fetch -> query', query)
+    const renderLocation = req ? 'server' : 'client'
     const { p } = query
     const page = Number(p || 1)
-    console.log('home.js -> BEFORE the data fetch -> p', p)
-    console.log('home.js -> BEFORE the data fetch -> page', page)
     const articles = await getListOfArticles('blog', { page })
-    console.log('home.js -> inside getInitialProps AFTER the data fetch-> articles from getListOfArticles', articles)
     return { page, articles, renderLocation }
   }
 
   render () {
-    console.log('articles.js -> begin render of ListOfAticles -> this.props ', this.props)
+    console.log('This page was rendered on the ', this.props.renderLocation)
+    console.log('articles.js -> begin render of ListOfArticles -> this.props ', this.props)
     const { page, url, articles,renderLocation } = this.props
     const offset = (page - 1) * 12
 

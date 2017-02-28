@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Story from './story'
+import ArticleTeaserView from './article-teaser-view'
 import { observe } from '../lib/get-article'
 
 export default class extends Component {
@@ -10,10 +10,8 @@ export default class extends Component {
   }
 
   componentDidMount () {
-    console.log('updating story did mount')
     this.unsubscribe = observe(this.props.id, (data) => {
-      console.log('data inside observe callback, inside updating story js', data)
-      this.setState(data)
+      if (data) this.setState(data)
     })
   }
 
@@ -22,8 +20,8 @@ export default class extends Component {
   }
 
   render () {
-    console.log('updating story did render')
-    return <Story {...this.state} />
+    console.log('ArticleTeaserReactive rendered', this.props)
+    return <ArticleTeaserView {...this.state} />
   }
 
 }

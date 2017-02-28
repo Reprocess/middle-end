@@ -1,7 +1,7 @@
 import React from 'react'
 import Page from '../components/page'
 import Item from '../components/item'
-import getItem from '../lib/get-item'
+import getItem from '../lib/get-article'
 import getComments from '../lib/get-comments'
 
 export default class extends React.Component {

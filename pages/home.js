@@ -19,11 +19,9 @@ export default class extends React.Component {
   }
 
   render () {
-
+    console.log('articles.js -> begin render of ListOfAticles -> this.props ', this.props)
     const { page, url, articles,renderLocation } = this.props
     const offset = (page - 1) * 12
-
-    console.log('articles.js -> begin render of ListOfAticles -> render location -> ', renderLocation)
 
     return <Page>
       <ListOfArticles page={page} offset={offset} articles={articles} />

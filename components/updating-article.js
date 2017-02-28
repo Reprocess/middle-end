@@ -10,10 +10,10 @@ export default class extends React.Component {
   }
 
   componentDidMount () {
-    console.log('updating article did mount')
+    console.log('updating-article.js -> componentDidMount -> this.state', this.state)
+    console.log('updating-article.js -> componentDidMount -> this.props', this.props)
     this.unsubscribe = observe(this.props.id, (data) => {
-      console.log('this does not get called, so forget this line', data)
-      this.setState(data)
+      if (data) this.setState(data)
     })
   }
 

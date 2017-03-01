@@ -18,7 +18,7 @@ export default () => (
       </div>
     </div>
     <div className="right">
-      <Link href="/login"><a className="login">login</a></Link>
+      <a target="_blank" className="login" href="http://www.traineffective.com/dashboard">members area</a>
     </div>
 
     <style jsx>{`

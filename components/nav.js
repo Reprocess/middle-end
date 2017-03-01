@@ -2,11 +2,7 @@ import Link from 'next/prefetch'
 
 export default () => (
   <ul>
-    <Item href="/newest">new</Item>
-    <Item href="/show">show</Item>
-    <Item href="/ask">ask</Item>
-    <Item href="/jobs">jobs</Item>
-    <Item href="/submit">submit</Item>
+    <Item href="/submit">Test link to a page with useless content</Item>
 
     <style jsx>{`
       ul {

@@ -11,6 +11,7 @@ export default class extends Component {
 
   componentDidMount () {
     this.unsubscribe = observe(this.props.id, (data) => {
+      console.log('observe is about to invoke setState using the data from firebase')
       if (data) this.setState(data)
     })
   }

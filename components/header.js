@@ -10,7 +10,7 @@ export default () => (
          <span className="logo">
            <Logo />
          </span>
-         <span className="title">My Blog Functionality Test Site</span>
+         <span className="title">Home Page</span>
        </a>
       </Link>
       <div className="nav">
@@ -18,7 +18,7 @@ export default () => (
       </div>
     </div>
     <div className="right">
-      <a target="_blank" className="login" href="http://www.traineffective.com/dashboard">members area</a>
+      <a target="_blank" className="login" href="http://www.google.com">external link test</a>
     </div>
 
     <style jsx>{`

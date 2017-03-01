@@ -2,7 +2,7 @@ import Link from 'next/prefetch'
 
 export default () => (
   <ul>
-    <Item href="/submit">Test link to a page with useless content</Item>
+    <Item href="/render-location-test">Render location test</Item>
 
     <style jsx>{`
       ul {

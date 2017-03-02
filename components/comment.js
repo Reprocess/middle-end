@@ -70,7 +70,7 @@ export default class Comment extends React.Component {
         .text :global(p) {
           margin-top: 10px;
         }
-        
+
         .text :global(pre) {
           margin-bottom: 10px;
         }

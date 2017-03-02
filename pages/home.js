@@ -9,7 +9,7 @@ export default class extends React.Component {
     const renderLocation = req ? 'server' : 'client'
     const { p } = query
     const page = Number(p || 1)
-    const articles = await getListOfArticles('blog', { page })
+    const articles = await getListOfArticles('home', { page })
     return { page, articles, renderLocation }
   }
 
@@ -20,8 +20,8 @@ export default class extends React.Component {
     const offset = (page - 1) * 12
 
     return <Page>
-      <ListOfArticles page={page} offset={offset} articles={articles} />
-    </Page>
+            <ListOfArticles page={page} offset={offset} articles={articles} />
+           </Page>
   }
 
 }

@@ -1,13 +1,14 @@
 import React from 'react'
 import Page from '../components/page'
-import Item from '../components/item'
-import getItem from '../lib/get-article'
+import Article from '../components/article'
+import getArticle from '../lib/get-article'
 import getComments from '../lib/get-comments'
 
 export default class extends React.Component {
 
   static async getInitialProps ({ req, query: { id } }) {
-    const story = await getItem(id)
+    console.log('pages/article.js -> getInitialProps -> id ->', id)
+    const story = await getArticle(id)
     const comments = story
       ? req
         ? await getComments(story.comments)
@@ -19,14 +20,7 @@ export default class extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
-  }
-
-  render () {
-    const { story } = this.props
-    const comments = this.state.comments || this.props.comments
-    return <Page>
-      <Item story={story} comments={comments} />
-    </Page>
+    console.log('pages/article.js -> props ->', props)
   }
 
   componentDidMount () {
@@ -42,4 +36,13 @@ export default class extends React.Component {
     }
   }
 
+  render () {
+    const { story } = this.props
+    const comments = this.state.comments || this.props.comments
+    console.log('pages/article.js -> render -> story ->', story)
+    console.log('pages/article.js -> render -> comments ->', comments)
+    return <Page>
+      <Article story={story} comments={comments} />
+    </Page>
+  }
 }

@@ -1,24 +1,25 @@
 import React from 'react'
 import Page from '../components/page'
-import Stories from '../components/stories'
-import getStories from '../lib/get-stories'
+import ListOfArticles from '../components/list-of-articles'
+import getListOfArticles from '../lib/get-list-of-articles'
 
 export default class extends React.Component {
 
-  static async getInitialProps ({ query }) {
+  static async getInitialProps ({ query, req }) {
+    const renderLocation = req ? 'server' : 'client'
     const { p } = query
     const page = Number(p || 1)
-    const stories = await getStories('askstories', { page })
-    return { page, stories }
+    const articles = await getListOfArticles('ask', { page })
+    return { page, articles, renderLocation }
   }
 
   render () {
-    const { page, url, stories } = this.props
-    const offset = (page - 1) * 30
+    const { page, url, articles,renderLocation } = this.props
+    const offset = (page - 1) * 12
+
     return <Page>
-      <Stories page={page} offset={offset} stories={stories} />
-    </Page>
+            <ListOfArticles page={page} offset={offset} articles={articles} />
+           </Page>
   }
 
 }
-

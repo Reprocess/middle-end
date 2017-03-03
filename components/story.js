@@ -1,49 +1,11 @@
 import Link from 'next/prefetch'
 import parse from 'url-parse'
 
-export default ({ id, title, date, url, user, score, commentsCount }) => {
-  const { host } = parse(url)
+export default ({ editorState }) => {
+  console.log('editorState', editorState)
   return <div>
     <div className="title">
-      {
-        url
-          ? <a href={url}>{title}</a>
-          : <Link href={`/item?id=${id}`}>
-              <a>{title}</a>
-            </Link>
-      }
-      {
-        url && <span className="source">
-          <a href={`http://${host}`}>{host.replace(/^www\./, '')}</a>
-        </span>
-      }
-    </div>
-    <div className="meta">
-      {score}
-      {' '}
-      {plural(score, 'point')}
-      {' '}
-      by
-      {' '}
-      <Link href={`/user?id=${user}`}>
-        <a>{user}</a>
-      </Link>
-      {' '}
-      <Link href={`/item?id=${id}`}>
-        <a>
-          {date} ago
-        </a>
-      </Link>
-      {' '}
-      |
-      {' '}
-      <Link href={`/item?id=${id}`}>
-        <a>
-          {commentsCount}
-          {' '}
-          {plural(commentsCount, 'comment')}
-        </a>
-      </Link>
+      it works, check your console
     </div>
     <style jsx>{`
       .title {
@@ -81,5 +43,3 @@ export default ({ id, title, date, url, user, score, commentsCount }) => {
     `}</style>
   </div>
 }
-
-const plural = (n, s) => s + ((n === 0 || n > 1) ? 's' : '')

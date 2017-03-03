@@ -4,7 +4,8 @@ import Comment from '../components/comment'
 import CommentForm from '../components/comment-form'
 
 export default ({ story, comments=null }) => {
-  console.log('I really do not think it makes it this far...???')
+  console.log('Article -> story', story)
+  console.log('Article render()')
   return (
     <div className="item">
       <Story {...story} />

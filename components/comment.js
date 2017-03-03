@@ -1,5 +1,3 @@
-import timeAgo from '../lib/time-ago'
-
 export default class Comment extends React.Component {
 
   constructor (props) {
@@ -14,7 +12,7 @@ export default class Comment extends React.Component {
       <div className="meta">
         { user }
         {' '}
-        { timeAgo(new Date(date)) } ago 
+        Moment Time {date} ago
         {' '}
         <span onClick={this.toggle} className="toggle">
           {

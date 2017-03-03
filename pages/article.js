@@ -7,13 +7,15 @@ import getComments from '../lib/get-comments'
 export default class extends React.Component {
 
   static async getInitialProps ({ req, query: { id } }) {
-    console.log('pages/article.js -> getInitialProps -> id ->', id)
+    console.log('pages/article.js -> getInitialProps() -> id ->', id)
     const story = await getArticle(id)
+    console.log('pages/article.js -> getInitialProps() -> story ->', story)
     const comments = story
       ? req
         ? await getComments(story.comments)
         : null
       : null
+    console.log('pages/article.js -> getInitialProps() -> comments ->', story)
     return { story, comments, id }
   }
 
@@ -37,6 +39,8 @@ export default class extends React.Component {
   }
 
   render () {
+    console.log('pages/articles.js -> render -> this.props', this.props)
+    console.log('pages/articles.js -> render -> this.props', this.state)
     const { story } = this.props
     const comments = this.state.comments || this.props.comments
     console.log('pages/article.js -> render -> story ->', story)

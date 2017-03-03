@@ -1,9 +1,10 @@
 import Link from 'next/prefetch'
-import timeAgo from '../lib/time-ago'
+
 import parse from 'url-parse'
 
-export default ({ id, title, date, url, user, score, commentsCount }) => {
-  console.log('ArticleTeaserView rendered time', date)
+const plural = (n, s) => s + ((n === 0 || n > 1) ? 's' : '')
+
+const ArticleTeaserView = ({ id, title, date, url, user, score, commentsCount }) => {
   const { host } = parse(url)
   return <div>
     <div className="title">
@@ -31,10 +32,10 @@ export default ({ id, title, date, url, user, score, commentsCount }) => {
         <a>{user}</a>
       </Link>
       {' '}
+      |
+      {' '}
       <Link href={`/article?id=${id}`}>
-        <a>
-          date: { date }
-        </a>
+        <a>{date}</a>
       </Link>
       {' '}
       |
@@ -84,4 +85,14 @@ export default ({ id, title, date, url, user, score, commentsCount }) => {
   </div>
 }
 
-const plural = (n, s) => s + ((n === 0 || n > 1) ? 's' : '')
+ArticleTeaserView.propTypes = {
+  id: React.PropTypes.string.isRequired,
+  title: React.PropTypes.string.isRequired,
+  date: React.PropTypes.string.isRequired,
+  url: React.PropTypes.string,
+  user: React.PropTypes.string.isRequired,
+  score: React.PropTypes.number.isRequired,
+  commentsCount: React.PropTypes.number.isRequired
+}
+
+export default ArticleTeaserView

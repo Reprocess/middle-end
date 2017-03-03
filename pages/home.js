@@ -10,12 +10,13 @@ export default class extends React.Component {
     const { p } = query
     const page = Number(p || 1)
     const articles = await getListOfArticles('home', { page })
+    console.log('home.js -> getInitialProps() -> articles', typeof articles[0].timeAgo)
     return { page, articles, renderLocation }
   }
 
   render () {
     console.log('This page was rendered on the ', this.props.renderLocation)
-    console.log('articles.js -> begin render of ListOfArticles -> this.props ', this.props)
+    console.log('home.js -> begin render of ListOfArticles -> this.props ', this.props.articles[0])
     const { page, url, articles,renderLocation } = this.props
     const offset = (page - 1) * 12
 

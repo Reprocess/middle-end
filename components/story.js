@@ -1,5 +1,4 @@
 import Link from 'next/prefetch'
-import timeAgo from '../lib/time-ago'
 import parse from 'url-parse'
 
 export default ({ id, title, date, url, user, score, commentsCount }) => {
@@ -32,7 +31,7 @@ export default ({ id, title, date, url, user, score, commentsCount }) => {
       {' '}
       <Link href={`/item?id=${id}`}>
         <a>
-          {timeAgo(new Date(date)) /* note: we re-hydrate due to ssr */ } ago
+          {date} ago
         </a>
       </Link>
       {' '}

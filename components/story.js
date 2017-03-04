@@ -1,8 +1,10 @@
-export default ({ story }) => {
-  console.log('Story -> story ->', story)
+export default ({ editorState }) => {
+  console.log('Story -> story ->', editorState)
+  console.log('Story -> typeof story ->', typeof editorState)
+  const stringifiedStoryEditorState = JSON.stringify(editorState);
   return <div>
     <div className="title">
-      it works, check your console
+      {stringifiedStoryEditorState}
     </div>
     <style jsx>{`
       .title {

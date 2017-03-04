@@ -10,9 +10,9 @@ export default class extends Component {
   }
 
   componentDidMount () {
-    console.log('ArticleTeaserReactive -> componentDidMount()')
-    this.unsubscribe = observe(this.props.id, (data) => {
-      console.log('observe is about to invoke setState using the data from firebase')
+    const { id } = this.props
+    this.unsubscribe = observe(id, 'teaser', (data) => {
+      console.log('observe is about to invoke setState using the data from firebase', data)
       if (data) this.setState(data)
     })
   }
@@ -22,8 +22,9 @@ export default class extends Component {
   }
 
   render () {
+    const state = this.state
     console.log('ArticleTeaserReactive render()')
-    return <ArticleTeaserView {...this.state} />
+    return <ArticleTeaserView {...state} />
   }
 
 }

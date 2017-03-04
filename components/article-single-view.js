@@ -1,12 +1,13 @@
 import Page from '../components/page'
 import Story from '../components/story'
 
-export default ({ story }) => {
-  console.log('Article -> story', story)
-  console.log('Article render()')
+export default ({editorState}) => {
+  console.log('ArticleSingleView -> story ->', editorState)
+  console.log('ArticleSingleView -> typeof story ->', typeof editorState)
+  console.log('ArticleSingleView render()')
   return (
     <div className="item">
-      <Story {...story} />
+      <Story editorState={editorState} />
 
       <style jsx>{`
         .item {

@@ -7,21 +7,19 @@ export default class extends React.Component {
 
   static async getInitialProps ({ query, req }) {
     const renderLocation = req ? 'server' : 'client'
-    const { p } = query
-    const page = Number(p || 1)
-    const articles = await getListOfArticles('home', { page })
+    console.log('home.js -> getInitialProps() -> query', query)
+    const articles = await getListOfArticles('home')
     console.log('home.js -> getInitialProps() -> articles', typeof articles[0])
-    return { page, articles, renderLocation }
+    return { articles, renderLocation }
   }
 
   render () {
     console.log('This page was rendered on the ', this.props.renderLocation)
     console.log('home.js -> begin render of ListOfArticles -> this.props ', this.props.articles[0])
-    const { page, url, articles,renderLocation } = this.props
-    const offset = (page - 1) * 12
+    const { articles, renderLocation } = this.props
 
     return <Page>
-            <ListOfArticlesView page={page} offset={offset} articles={articles} />
+            <ListOfArticlesView articles={articles} />
            </Page>
   }
 

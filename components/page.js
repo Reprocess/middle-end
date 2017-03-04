@@ -1,5 +1,6 @@
 import Header from './header'
 import Meta from './meta'
+import Footer from './footer'
 
 export default ({ children }) => (
   <div className="main">
@@ -9,6 +10,8 @@ export default ({ children }) => (
     <div className="page">
       { children }
     </div>
+
+    <Footer />
 
     <style jsx>{`
       .main {

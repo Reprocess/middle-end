@@ -2,6 +2,9 @@ import ArticleTeaserReactive from './article-teaser-reactive'
 import Link from 'next/prefetch'
 
 export default ({ articles, page=1, offset=null }) => {
+  articles.map((article) => {
+    console.log('ListOfArticles -> article', article)
+  })
 
   return (
   <div>
@@ -19,6 +22,8 @@ export default ({ articles, page=1, offset=null }) => {
       .article {
         display: flex;
         margin: 10px 0;
+        padding: 10px;
+        background-color: aqua;
       }
 
       .article-teaser {

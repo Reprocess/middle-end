@@ -8,11 +8,8 @@
     "firebase": "3.5.2",
     "lodash.isempty": "^4.4.0",
     "moment": "^2.17.1",
-    "ms": "0.7.2",
     "next": "2.0.0-beta.17",
-    "nprogress": "^0.2.0",
-    "url-parse": "1.1.7",
-    "uuidv4": "^0.4.0"
+    "nprogress": "^0.2.0"
   },
   "scripts": {
     "dev": "next",

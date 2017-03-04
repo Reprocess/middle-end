@@ -1,6 +1,6 @@
 import React from 'react'
 import Page from '../components/page'
-import ListOfArticles from '../components/list-of-articles'
+import ListOfArticlesView from '../components/list-of-articles-view'
 import getListOfArticles from '../lib/get-list-of-articles'
 
 export default class extends React.Component {
@@ -10,7 +10,7 @@ export default class extends React.Component {
     const { p } = query
     const page = Number(p || 1)
     const articles = await getListOfArticles('home', { page })
-    console.log('home.js -> getInitialProps() -> articles', typeof articles[0].timeAgo)
+    console.log('home.js -> getInitialProps() -> articles', typeof articles[0])
     return { page, articles, renderLocation }
   }
 
@@ -21,7 +21,7 @@ export default class extends React.Component {
     const offset = (page - 1) * 12
 
     return <Page>
-            <ListOfArticles page={page} offset={offset} articles={articles} />
+            <ListOfArticlesView page={page} offset={offset} articles={articles} />
            </Page>
   }
 

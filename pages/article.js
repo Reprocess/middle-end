@@ -1,8 +1,7 @@
 import React from 'react'
 import Page from '../components/page'
-import Article from '../components/article'
+import ArticleSingleView from '../components/article-single-view'
 import getArticle from '../lib/get-article'
-import getComments from '../lib/get-comments'
 
 export default class extends React.Component {
 
@@ -10,13 +9,7 @@ export default class extends React.Component {
     console.log('pages/article.js -> getInitialProps() -> id ->', id)
     const story = await getArticle(id)
     console.log('pages/article.js -> getInitialProps() -> story ->', story)
-    const comments = story
-      ? req
-        ? await getComments(story.comments)
-        : null
-      : null
-    console.log('pages/article.js -> getInitialProps() -> comments ->', story)
-    return { story, comments, id }
+    return { story, id }
   }
 
   constructor (props) {
@@ -26,27 +19,16 @@ export default class extends React.Component {
   }
 
   componentDidMount () {
-    if (!this.props.comments) {
-      // populate comments client side
-      getComments(this.props.story.comments)
-      .then((comments) => {
-        this.setState({ comments })
-      })
-      .catch((err) => {
-        // TODO: handle error
-      })
-    }
+
   }
 
   render () {
     console.log('pages/articles.js -> render -> this.props', this.props)
     console.log('pages/articles.js -> render -> this.props', this.state)
     const { story } = this.props
-    const comments = this.state.comments || this.props.comments
     console.log('pages/article.js -> render -> story ->', story)
-    console.log('pages/article.js -> render -> comments ->', comments)
     return <Page>
-      <Article story={story} comments={comments} />
+      <ArticleSingleView story={story} />
     </Page>
   }
 }

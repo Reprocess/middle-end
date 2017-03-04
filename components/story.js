@@ -1,8 +1,5 @@
-import Link from 'next/prefetch'
-import parse from 'url-parse'
-
-export default ({ editorState }) => {
-  console.log('editorState', editorState)
+export default ({ story }) => {
+  console.log('Story -> story ->', story)
   return <div>
     <div className="title">
       it works, check your console

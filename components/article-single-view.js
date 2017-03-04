@@ -1,28 +1,12 @@
 import Page from '../components/page'
 import Story from '../components/story'
-import Comment from '../components/comment'
-import CommentForm from '../components/comment-form'
 
-export default ({ story, comments=null }) => {
+export default ({ story }) => {
   console.log('Article -> story', story)
   console.log('Article render()')
   return (
     <div className="item">
       <Story {...story} />
-
-      <div className="form">
-        <CommentForm />
-      </div>
-
-      <div className="comments">
-        {
-          comments
-            ? comments.map((comment) => (
-                <Comment key={comment.id} {...comment} />
-              ))
-            : <div className="loading">Loading…</div>
-        }
-      </div>
 
       <style jsx>{`
         .item {
@@ -35,10 +19,6 @@ export default ({ story, comments=null }) => {
 
         .loading {
           font-size: 13px;
-        }
-
-        .comments {
-          padding: 10px 0 20px;
         }
 
         @media (max-width: 750px) {

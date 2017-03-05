@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ArticleTeaserView from './article-teaser-view'
-import { observe } from '../lib/get-article'
+import { observeArticleMeta } from '../lib/observables'
 
 export default class extends Component {
 
@@ -11,7 +11,7 @@ export default class extends Component {
 
   componentDidMount () {
     const { id } = this.props
-    this.unsubscribe = observe(id, 'teaser', (data) => {
+    this.unsubscribe = observeArticleMeta(id, (data) => {
       console.log('observe is about to invoke setState using the data from firebase', data)
       if (data) this.setState(data)
     })

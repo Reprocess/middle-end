@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ArticleSingleView from './article-single-view'
-import { observe } from '../lib/get-article'
-import firebaseRefs from '../config/firebase-refs'
+import { observeArticleContent } from '../lib/observables'
 
 export default class extends Component {
 
@@ -13,7 +12,7 @@ export default class extends Component {
   componentDidMount () {
     const { id } = this.props
     console.log('ArticleSingleReactive -> componentDidMount() -> id', id)
-    this.unsubscribe = observe(id, 'single', (data) => {
+    this.unsubscribe = observeArticleContent(id, (data) => {
       console.log('observe invokes setState using the data from firebase', data)
       if (data) this.setState(data)
     })

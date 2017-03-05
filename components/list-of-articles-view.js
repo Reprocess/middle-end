@@ -1,7 +1,7 @@
 import ArticleTeaserReactive from './article-teaser-reactive'
 import Link from 'next/prefetch'
 
-export default ({ articles, page=1, offset=null }) => {
+export default ({ articles }) => {
   articles.map((article) => {
     console.log('ListOfArticles -> article', article)
   })

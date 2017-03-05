@@ -9,7 +9,8 @@
     "lodash.isempty": "^4.4.0",
     "moment": "^2.17.1",
     "next": "2.0.0-beta.17",
-    "nprogress": "^0.2.0"
+    "nprogress": "^0.2.0",
+    "uuid-v4": "^0.1.0"
   },
   "scripts": {
     "dev": "next",

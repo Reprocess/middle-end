@@ -1,6 +1,6 @@
 import React from 'react'
 import Page from '../components/page'
-import ListOfArticlesView from '../components/list-of-articles-view'
+import ListOfArticlesReactive from '../components/list-of-articles-reactive'
 import getArticles from '../lib/get-articles'
 
 export default class extends React.Component {
@@ -15,7 +15,7 @@ export default class extends React.Component {
     const { articles, renderLocation } = this.props
     console.log('home -> articles', articles)
     return <Page>
-             <ListOfArticlesView articles={articles} />
+             <ListOfArticlesReactive articles={articles} newArticle={false} />
            </Page>
   }
 

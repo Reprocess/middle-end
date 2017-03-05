@@ -13,8 +13,8 @@ export default class extends Component {
   componentDidMount () {
     const { articles } = this.props
     console.log('componentDidMount() -> articles', articles)
-    this.unsubscribe = observeArticlesMetaList((data) => {
-      if (data) this.setState({ articles: data })
+    this.unsubscribe = observeArticlesMetaList(() => {
+      this.setState({newArticle: true})
     })
   }
 

@@ -1,7 +1,7 @@
-export default ({ editorState }) => {
-  console.log('Story -> story ->', editorState)
-  console.log('Story -> typeof story ->', typeof editorState)
-  const stringifiedStoryEditorState = JSON.stringify(editorState);
+const Story = ({ stringifiedStoryEditorState }) => {
+
+  console.log('Story -> stringifiedStoryEditorState', stringifiedStoryEditorState)
+
   return <div>
     <div className="title">
       {stringifiedStoryEditorState}
@@ -42,3 +42,9 @@ export default ({ editorState }) => {
     `}</style>
   </div>
 }
+
+Story.propTypes = {
+  stringifiedStoryEditorState: React.PropTypes.string.isRequired
+}
+
+export default Story

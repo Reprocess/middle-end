@@ -1,7 +1,6 @@
 import ArticleTeaserReactive from './article-teaser-reactive'
-import Link from 'next/prefetch'
 
-export default ({ articles }) => {
+const ArticlesView = ({ articles }) => {
 
   console.log('ArticlesView -> typeof articles ->', articles)
 
@@ -32,3 +31,9 @@ export default ({ articles }) => {
     `}</style>
   </div>
 )}
+
+ArticlesView.propTypes = {
+  articles: React.PropTypes.array.isRequired
+}
+
+export default ArticlesView

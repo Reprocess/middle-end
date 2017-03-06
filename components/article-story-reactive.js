@@ -25,8 +25,9 @@ export default class extends Component {
 
   render () {
 
-    const { editorState } = this.state
-    return <ArticleStoryView editorState={editorState} />
+    const { state } = this.state
+    console.log('ArticleStoryView -> ', state)
+    return <ArticleStoryView {...state} />
   }
 
 }

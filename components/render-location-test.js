@@ -1,4 +1,4 @@
-export default ( { renderLocation } ) => (
+const renderLocationTest = ( { renderLocation } ) => (
   <div>
     <h1>This page was rendered on the { renderLocation }</h1>
 
@@ -31,3 +31,9 @@ export default ( { renderLocation } ) => (
 
   </div>
 )
+
+renderLocationTest.propTypes = {
+    renderLocation: React.PropTypes.string.isRequired
+}
+
+export default renderLocationTest

@@ -24,6 +24,7 @@ export default class extends Component {
   render () {
 
     const state = this.state
+    console.log('ArticleTeaserView -> ', state)
     return <ArticleTeaserView {...state} />
   }
 

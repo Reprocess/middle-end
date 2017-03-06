@@ -13,8 +13,8 @@ export default class extends Component {
   componentDidMount () {
 
     const { articles } = this.props
-    this.unsubscribe = observeArticlesMetaList(() => {
-      this.setState({ newArticle: true })
+    this.unsubscribe = observeArticlesMetaList((data) => {
+      if (data) this.setState({ articles: data })
     })
   }
 
@@ -26,6 +26,7 @@ export default class extends Component {
   render () {
 
     const state = this.state
+    console.log('ArticlesReactive -> ', state)
     return <ArticlesView {...state} />
   }
 

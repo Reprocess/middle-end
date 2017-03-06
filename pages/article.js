@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Page from '../components/page'
 import ArticleStoryReactive from '../components/article-story-reactive'
 import getArticle from '../lib/get-article'
 
-export default class extends React.Component {
+export default class extends Component {
 
   static async getInitialProps ({ query: { id } }) {
 
     const story = await getArticle(id)
+    console.log('Article Page -> story', story)
     return { story, id }
   }
 

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import ArticleTeaserView from './article-teaser-view'
-import { observeArticleMeta } from '../lib/observables'
+import ArticleStoryView from './article-story-view'
+import { observeArticleStory } from '../lib/observables'
 
 export default class extends Component {
 
   constructor (props) {
+
     super(props)
     this.state = props
   }
@@ -12,19 +13,20 @@ export default class extends Component {
   componentDidMount () {
 
     const { id } = this.props
-    this.unsubscribe = observeArticleMeta(id, (data) => {
+    this.unsubscribe = observeArticleStory(id, (data) => {
       if (data) this.setState(data)
     })
   }
 
   componentWillUnmount () {
+
     this.unsubscribe()
   }
 
   render () {
 
-    const state = this.state
-    return <ArticleTeaserView {...state} />
+    const { editorState } = this.state
+    return <ArticleStoryView editorState={editorState} />
   }
 
 }

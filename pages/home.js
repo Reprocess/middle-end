@@ -1,21 +1,22 @@
 import React from 'react'
 import Page from '../components/page'
-import ListOfArticlesReactive from '../components/list-of-articles-reactive'
+import ArticlesReactive from '../components/articles-reactive'
 import getArticles from '../lib/get-articles'
 
 export default class extends React.Component {
 
-  static async getInitialProps ({ query, req }) {
-    const renderLocation = req ? 'server' : 'client'
+  static async getInitialProps () {
+
     const articles = await getArticles('home')
-    return { articles, renderLocation }
+    return { articles }
   }
 
   render () {
-    const { articles, renderLocation } = this.props
-    console.log('home -> articles', articles)
+
+    const { articles } = this.props
+
     return <Page>
-             <ListOfArticlesReactive articles={articles} newArticle={false} />
+             <ArticlesReactive articles={articles} />
            </Page>
   }
 

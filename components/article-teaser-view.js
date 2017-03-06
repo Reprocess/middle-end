@@ -1,6 +1,9 @@
 import Link from 'next/prefetch'
 
 const ArticleTeaserView = ({ id, title, date, lead, author }) => {
+  
+  console.log('ArticleTeaserView -> id', id)
+
   return <div className="article-teaser-view">
     <Link href={`/article?id=${id}`}>
       <a className="article-teaser-view__link">

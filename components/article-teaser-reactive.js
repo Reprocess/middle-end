@@ -5,6 +5,7 @@ import { observeArticleMeta } from '../lib/observables'
 export default class extends Component {
 
   constructor (props) {
+
     super(props)
     this.state = props
   }
@@ -18,6 +19,7 @@ export default class extends Component {
   }
 
   componentWillUnmount () {
+    
     this.unsubscribe()
   }
 
@@ -25,6 +27,7 @@ export default class extends Component {
 
     const state = this.state
     console.log('ArticleTeaserView -> ', state)
+
     return <ArticleTeaserView {...state} />
   }
 

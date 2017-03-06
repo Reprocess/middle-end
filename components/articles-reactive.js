@@ -27,6 +27,7 @@ export default class extends Component {
 
     const state = this.state
     console.log('ArticlesReactive -> ', state)
+    
     return <ArticlesView {...state} />
   }
 

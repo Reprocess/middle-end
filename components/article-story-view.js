@@ -1,6 +1,6 @@
 import Story from '../components/story'
 
-const ArticleStoryView =  ({editorState}) => {
+const ArticleStoryView = ({editorState}) => {
 
   console.log('ArticleSingleView -> editorState ->', editorState)
   console.log('ArticleSingleView -> typeof editorState ->', typeof editorState)

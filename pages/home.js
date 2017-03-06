@@ -8,6 +8,7 @@ export default class extends React.Component {
   static async getInitialProps () {
 
     const articles = await getArticles('home')
+    console.log('Home Page -> articles', articles)
     return { articles }
   }
 

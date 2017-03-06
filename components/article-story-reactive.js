@@ -26,7 +26,8 @@ export default class extends Component {
   render () {
 
     const { state } = this.state
-    console.log('ArticleStoryView -> ', state)
+    console.log('ArticleStoryReactive -> ', state)
+
     return <ArticleStoryView {...state} />
   }
 

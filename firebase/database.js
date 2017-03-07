@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-import firebaseRefs from './refs'
+import Refs from './refs'
 
 try {
   firebase.initializeApp({
@@ -15,6 +15,6 @@ try {
 
 const root = firebase
   .database()
-  .ref(firebaseRefs.PUBLIC)
+  .ref(Refs.PUBLIC)
 
 export default root

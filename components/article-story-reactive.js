@@ -16,9 +16,7 @@ class ArticleStoryReactive extends Component {
     const { id, story } = this.props
 
     this.unsubscribe = observeArticleStory(id, (data) => {
-      console.log('ArticleStoryReactive observeArticleStory() -> id', id)
-      console.log('ArticleStoryReactive observeArticleStory() -> data', data)
-      if (data) this.setState(data)
+      if (data) this.setState({ story: data })
     })
   }
 

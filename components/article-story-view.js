@@ -1,9 +1,12 @@
 import Story from '../components/story'
 
 const ArticleStoryView = ({story, id}) => {
+  console.log('ArticleSingleView -> editorState ->', story.editorState)
+  console.log('ArticleSingleView -> typeof editorState ->', typeof story.editorState)
+  const stringifiedStoryEditorState = JSON.stringify(story.editorState)
   return (
     <div className="item">
-      <Story stringifiedStoryEditorState={'I am a string'} />
+      <Story stringifiedStoryEditorState={stringifiedStoryEditorState} />
 
       <style jsx>{`
         .item {

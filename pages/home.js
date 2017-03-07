@@ -8,14 +8,12 @@ export default class extends Component {
   static async getInitialProps () {
 
     const articles = await getArticles('home')
-    console.log('Home Page -> articles', articles)
     return { articles }
   }
 
   render () {
 
     const { articles } = this.props
-
     return <Page>
              <ArticlesReactive articles={articles} />
            </Page>

@@ -8,14 +8,12 @@ export default class extends Component {
   static async getInitialProps ({ query: { id } }) {
 
     const story = await getArticle(id)
-    console.log('Article Page -> story', story)
     return { story, id }
   }
 
   render () {
 
     const { id, story } = this.props
-
     return <Page>
              <ArticleStoryReactive id={id} story={story} />
            </Page>

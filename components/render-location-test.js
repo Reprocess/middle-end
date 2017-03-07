@@ -15,6 +15,9 @@ const renderLocationTest = ( { renderLocation } ) => (
 
     <p>I can push new code anytime to every user without them noticing -> no refresh needed</p>
 
+    <h4>Agressive Pre-Fetching</h4>
+
+    <p>Open up your console to the network tab and refresh the page with cmd+r or ctrl+r to see possible future pathways prefetched</p>
 
     <style jsx>{`
       h1, h3, h4 {

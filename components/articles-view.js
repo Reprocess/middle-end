@@ -1,10 +1,6 @@
 import ArticleTeaserReactive from './article-teaser-reactive'
 
-const ArticlesView = ({ articles }) => {
-
-  console.log('ArticlesView -> typeof articles ->', articles)
-
-  return (
+const ArticlesView = ({ articles }) => (
   <div>
     {
       articles.map((article, i) => (
@@ -30,7 +26,8 @@ const ArticlesView = ({ articles }) => {
       }
     `}</style>
   </div>
-)}
+)
+
 
 ArticlesView.propTypes = {
   articles: React.PropTypes.array.isRequired

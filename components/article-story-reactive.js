@@ -8,7 +8,6 @@ class ArticleStoryReactive extends Component {
 
     super(props)
     this.state = props
-    console.log('ArticleStoryReactive', this.state)
   }
 
   componentDidMount () {
@@ -28,8 +27,6 @@ class ArticleStoryReactive extends Component {
   render () {
 
     const state = this.state
-    console.log('ArticleStoryReactive -> state', state)
-
     return <ArticleStoryView {...state} />
   }
 

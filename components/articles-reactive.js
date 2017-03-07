@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ArticlesView from './articles-view'
 import { observeArticlesMetaList } from '../firebase/observables'
 
-export default class extends Component {
+class ArticlesReactive extends Component {
 
   constructor (props) {
 
@@ -26,9 +26,13 @@ export default class extends Component {
   render () {
 
     const state = this.state
-    console.log('ArticlesReactive -> ', state)
-    
     return <ArticlesView {...state} />
   }
 
+}
+
+export default ArticlesReactive
+
+ArticlesReactive.propTypes = {
+  articles: React.PropTypes.array.isRequired,
 }

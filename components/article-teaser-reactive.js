@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ArticleTeaserView from './article-teaser-view'
 import { observeArticleMeta } from '../firebase/observables'
 
-export default class extends Component {
+class ArticleTeaserReactive extends Component {
 
   constructor (props) {
 
@@ -19,16 +19,20 @@ export default class extends Component {
   }
 
   componentWillUnmount () {
-    
+
     this.unsubscribe()
   }
 
   render () {
 
     const state = this.state
-    console.log('ArticleTeaserView -> ', state)
-
     return <ArticleTeaserView {...state} />
   }
 
+}
+
+export default ArticleTeaserReactive
+
+ArticleTeaserReactive.propTypes = {
+  id: React.PropTypes.string.isRequired,
 }

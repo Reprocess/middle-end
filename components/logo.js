@@ -1,6 +1,6 @@
 export default () => (
   <span>
-    N
+    Reprocess Middle End
     <style jsx>{`
       span {
         border: 1px solid #fff;

@@ -2,7 +2,7 @@ import Header from './header'
 import Meta from './meta'
 import Footer from './footer'
 
-export default ({ children }) => (
+const Page =  ({ children }) => (
   <div className="main">
     <Meta />
     <Header />
@@ -35,3 +35,9 @@ export default ({ children }) => (
     `}</style>
   </div>
 )
+
+Page.propTypes = {
+    children: React.PropTypes.node.isRequired
+}
+
+export default Page

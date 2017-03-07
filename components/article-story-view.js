@@ -1,14 +1,9 @@
 import Story from '../components/story'
 
-const ArticleStoryView = ({editorState}) => {
-
-  console.log('ArticleSingleView -> editorState ->', editorState)
-  console.log('ArticleSingleView -> typeof editorState ->', typeof editorState)
-  const stringifiedStoryEditorState = JSON.stringify(editorState)
-
+const ArticleStoryView = ({story, id}) => {
   return (
     <div className="item">
-      <Story stringifiedStoryEditorState={stringifiedStoryEditorState} />
+      <Story stringifiedStoryEditorState={'I am a string'} />
 
       <style jsx>{`
         .item {
@@ -34,7 +29,7 @@ const ArticleStoryView = ({editorState}) => {
 }
 
 ArticleStoryView.propTypes = {
-  editorState: React.PropTypes.object.isRequired
+  story: React.PropTypes.object.isRequired
 }
 
 export default ArticleStoryView

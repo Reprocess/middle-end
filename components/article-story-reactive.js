@@ -14,8 +14,7 @@ class ArticleStoryReactive extends Component {
   componentDidMount () {
 
     const { id, story } = this.props
-    console.log('ArticleStoryReactive componentDidMount() -> id', id)
-    console.log('ArticleStoryReactive componentDidMount() -> story', story)
+
     this.unsubscribe = observeArticleStory(id, (data) => {
       console.log('ArticleStoryReactive observeArticleStory() -> id', id)
       console.log('ArticleStoryReactive observeArticleStory() -> data', data)
@@ -30,7 +29,7 @@ class ArticleStoryReactive extends Component {
 
   render () {
 
-    const { state } = this.state
+    const state = this.state
     console.log('ArticleStoryReactive -> state', state)
 
     return <ArticleStoryView {...state} />

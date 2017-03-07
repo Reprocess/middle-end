@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ArticleTeaserView from './article-teaser-view'
-import { observeArticleMeta } from '../lib/observables'
+import { observeArticleMeta } from '../firebase/observables'
 
 export default class extends Component {
 

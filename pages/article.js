@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Page from '../components/page'
 import ArticleStoryReactive from '../components/article-story-reactive'
-import getArticle from '../lib/get-article'
+import getArticle from '../firebase/get-article'
 
 export default class extends Component {
 

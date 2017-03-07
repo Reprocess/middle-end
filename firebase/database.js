@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-import firebaseRefs from '../config/firebase-refs'
+import firebaseRefs from './refs'
 
 try {
   firebase.initializeApp({

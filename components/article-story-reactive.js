@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ArticleStoryView from './article-story-view'
-import { observeArticleStory } from '../lib/observables'
+import { observeArticleStory } from '../firebase/observables'
 
 class ArticleStoryReactive extends Component {
 

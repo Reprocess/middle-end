@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ArticlesView from './articles-view'
-import { observeArticlesMetaList } from '../lib/observables'
+import { observeArticlesMetaList } from '../firebase/observables'
 
 export default class extends Component {
 

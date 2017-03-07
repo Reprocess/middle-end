@@ -2,7 +2,6 @@ import isEmpty from 'lodash.isempty'
 
 export function transformArticleMeta (article) {
 
-  console.log('transformArticleMeta() -> article', article)
   return (article) ? {
                         id: article.id,
                         title: article.title,
@@ -13,7 +12,7 @@ export function transformArticleMeta (article) {
                    : null
 }
 
-export function transformFirebaseDataSnapshotValueToArray (dataSnapshotValue) {
+export function transformResponseToArray (dataSnapshotValue) {
     return isEmpty(dataSnapshotValue)
       ? []
       : Object.keys(dataSnapshotValue).map(function (key) { return dataSnapshotValue[key] })

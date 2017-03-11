@@ -49,6 +49,9 @@ export default () => (
         opacity: 1.0;
         transform: rotate(3deg) translate(0px, -4px);
       }
+      .md-editor-toolbar {
+        display: none;
+      }
     `}</style>
   </div>
 )

@@ -1,6 +1,6 @@
-const Story = ({ stringifiedStoryEditorState }) => <div>
+const Story = () => <div>
   <div className="title">
-    {stringifiedStoryEditorState}
+    Can I delete this????
   </div>
   <style jsx>{`
     .title {

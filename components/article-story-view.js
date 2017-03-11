@@ -1,34 +1,61 @@
-import Story from '../components/story'
+import React, { Component } from 'react'
 
-const ArticleStoryView = ({story, id}) => {
+import {
+  Editor,
+  createEditorState,
+} from 'medium-draft';
 
-  const stringifiedStoryEditorState = JSON.stringify(story.editorState)
+class ArticleStoryView extends Component {
 
-  return (
-    <div className="item">
-      <Story stringifiedStoryEditorState={stringifiedStoryEditorState} />
+  constructor (props) {
 
-      <style jsx>{`
-        .item {
-          padding: 10px 29px;
-        }
+    super(props)
+    this.state = props
 
-        .form {
-          padding: 15px 0;
-        }
+    const { story } = this.props
+    const data = JSON.parse(story.editorState)
 
-        .loading {
-          font-size: 13px;
-        }
+    this.state = {
+      editorState: createEditorState(data), // with content
+    }
 
-        @media (max-width: 750px) {
-          .item {
-            padding: 8px 0px;
+    this.onChange = (editorState) => {
+      this.setState({ editorState });
+    };
+  }
+
+  render() {
+    const { editorState } = this.state;
+    return (
+      <div className="article">
+        <Editor
+          editorState={editorState} />
+
+        <style jsx>{`
+          .article {
+            padding: 10px 29px;
           }
-        }
-      `}</style>
-    </div>
-  )
+
+          .form {
+            padding: 15px 0;
+          }
+
+          .loading {
+            font-size: 13px;
+          }
+
+          @media (max-width: 750px) {
+            .item {
+              padding: 8px 0px;
+            }
+          }
+
+
+
+        `}</style>
+      </div>
+    )
+  }
 }
 
 ArticleStoryView.propTypes = {

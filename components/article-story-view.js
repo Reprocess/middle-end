@@ -29,7 +29,8 @@ class ArticleStoryView extends Component {
     return (
       <div className="article">
         <Editor
-          editorState={editorState} />
+          editorState={editorState}
+          onChange={this.onChange} />
 
         <style jsx>{`
           .article {

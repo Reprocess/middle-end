@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Story from './story'
 
 import {
   Editor,
@@ -25,9 +26,11 @@ class ArticleStoryView extends Component {
   }
 
   render() {
+    const { story } = this.props
     const { editorState } = this.state;
     return (
       <div className="article">
+        <Story stringifiedStoryEditorState={story.editorState} />
         <Editor
           editorState={editorState}
           onChange={this.onChange} />
@@ -50,9 +53,6 @@ class ArticleStoryView extends Component {
               padding: 8px 0px;
             }
           }
-
-
-
         `}</style>
       </div>
     )

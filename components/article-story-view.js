@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import Story from './story'
 
-import {
-  Editor,
-  createEditorState,
-} from 'medium-draft';
-
 class ArticleStoryView extends Component {
 
   constructor (props) {
@@ -16,10 +11,6 @@ class ArticleStoryView extends Component {
     const { story } = this.props
     const data = JSON.parse(story.editorState)
 
-    this.state = {
-      editorState: createEditorState(data), // with content
-    }
-
     this.onChange = (editorState) => {
       this.setState({ editorState });
     };
@@ -27,13 +18,9 @@ class ArticleStoryView extends Component {
 
   render() {
     const { story } = this.props
-    const { editorState } = this.state;
     return (
       <div className="article">
         <Story stringifiedStoryEditorState={story.editorState} />
-        <Editor
-          editorState={editorState}
-          onChange={this.onChange} />
 
         <style jsx>{`
           .article {

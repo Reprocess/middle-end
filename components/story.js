@@ -1,6 +1,12 @@
 const Story = ({ stringifiedStoryEditorState }) => <div>
   <div className="title">
     {stringifiedStoryEditorState}
+    {JSON.parse(stringifiedStoryEditorState).blocks.map((value, key) => (
+      <div key={key}>
+          {value.data !== undefined && <img src={value.data.src}/>}
+          {value.text !== undefined && <p>{value.text}</p>}
+      </div>
+    ))}
   </div>
   <style jsx>{`
     .title {
@@ -40,7 +46,7 @@ const Story = ({ stringifiedStoryEditorState }) => <div>
 
 
 Story.propTypes = {
-  stringifiedStoryEditorState: React.PropTypes.string.isRequired
+  stringifiedStoryEditorState: React.PropTypes.array.isRequired
 }
 
 export default Story

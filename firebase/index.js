@@ -12,8 +12,6 @@ export async function getArticles (location = Refs.HOME) {
     transformResponseToArray(ids.val())
   )
 
-  console.log(articles);
-
   const result = articles.map(article => transformArticleMeta(article))
 
   return result

@@ -7,7 +7,8 @@ export function transformArticleMeta (article) {
                         title: article.title,
                         lead: article.lead,
                         author: article.author,
-                        date: article.date
+                        date: article.date,
+                        teaser: article.teaser
                      }
                    : null
 }

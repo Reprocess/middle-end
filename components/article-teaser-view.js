@@ -1,10 +1,11 @@
 import Link from 'next/prefetch'
 
-const ArticleTeaserView = ({ id, title, date, lead, author }) => (
+const ArticleTeaserView = ({ id, title, date, lead, author, teaser }) => (
   <div className="article-teaser-view">
     <Link href={`/article?id=${id}`}>
       <a className="article-teaser-view__link">
         <div className="article-teaser-view__wrapper">
+          <img src={teaser} />
           <div className="title">
             <h3>{title}</h3>
           </div>

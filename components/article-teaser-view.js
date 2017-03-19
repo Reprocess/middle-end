@@ -1,5 +1,6 @@
 import Link from 'next/prefetch'
 import Moment from 'react-moment'
+import moment from 'moment'
 
 const ArticleTeaserView = ({ id, title, date, lead, author, teaser }) => (
   <div className="article-teaser-view">
@@ -17,12 +18,19 @@ const ArticleTeaserView = ({ id, title, date, lead, author, teaser }) => (
             </a>
           </Link>
           <div className="meta">
-            {author} | <Moment format="MMMM DD">{date}</Moment>
+            {author} | <Moment format={(new Date().getFullYear() - new Date(date).getFullYear()) > 0 ? "MMMM DD, YYYY" : "MMMM DD"}>{date}</Moment>
           </div>
           <Link href={`/article?id=${id}`}>
             <a className="article-teaser-view__link">
               <div className="lead">
                 {lead}
+              </div>
+            </a>
+          </Link>
+          <Link href={`/article?id=${id}`}>
+            <a className="article-teaser-view__link">
+              <div className="read-more">
+                Read more...
               </div>
             </a>
           </Link>

@@ -1,24 +1,32 @@
 import Link from 'next/prefetch'
+import Moment from 'react-moment'
 
 const ArticleTeaserView = ({ id, title, date, lead, author, teaser }) => (
   <div className="article-teaser-view">
-      <div className="article-teaser-view__wrapper">
-        <img src={teaser} />
-        <Link href={`/article?id=${id}`}>
-          <a className="article-teaser-view__link">
-            <div className="title">
-              <h3>{title}</h3>
-            </div>
-          </a>
-        </Link>
-        <div className="meta">
-          {author} | {date}
+        <div className="article-teaser-view__wrapper">
+          <Link href={`/article?id=${id}`}>
+            <a className="article-teaser-view__link">
+              <img src={teaser} />
+            </a>
+          </Link>
+          <Link href={`/article?id=${id}`}>
+            <a className="article-teaser-view__link">
+              <div className="title">
+                <h3>{title}</h3>
+              </div>
+            </a>
+          </Link>
+          <div className="meta">
+            {author} | <Moment format="MMMM DD">{date}</Moment>
+          </div>
+          <Link href={`/article?id=${id}`}>
+            <a className="article-teaser-view__link">
+              <div className="lead">
+                {lead}
+              </div>
+            </a>
+          </Link>
         </div>
-        <div className="lead">
-          {lead}
-        </div>
-      </div>
-    <Link href={`/article?id=${id}`}><a className="article-teaser-view__link">Read More</a></Link>
     <style jsx>{`
 
       a {
@@ -52,8 +60,7 @@ ArticleTeaserView.propTypes = {
   title: React.PropTypes.string.isRequired,
   lead: React.PropTypes.string.isRequired,
   date: React.PropTypes.string.isRequired,
-  author: React.PropTypes.string.isRequired,
-  teaser: React.PropTypes.string.isRequired,
+  author: React.PropTypes.string.isRequired
 }
 
 export default ArticleTeaserView

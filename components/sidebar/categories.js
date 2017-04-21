@@ -24,5 +24,5 @@ const ArticlesView = ({ categories }) => (
 export default ArticlesView
 
 ArticlesView.propTypes = {
-  categories: React.PropTypes.array.isRequired,
+  categories: React.PropTypes.array,
 }

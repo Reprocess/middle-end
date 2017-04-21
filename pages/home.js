@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Page from '../components/page'
 import ArticlesReactive from '../components/articles-reactive'
-import Categories from '../components/categories'
+import Sidebar from '../components/sidebar'
 import { getArticles, getAllArticles, getAllCategories } from '../firebase'
 
 export default class extends Component {
@@ -23,7 +23,7 @@ export default class extends Component {
 
     const { articles, categories } = this.props
     return <Page>
-             <Categories categories={categories} />
+             <Sidebar categories={categories} articles={articles} />
              <ArticlesReactive articles={articles} />
            </Page>
   }

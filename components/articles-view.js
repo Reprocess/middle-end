@@ -1,7 +1,7 @@
 import ArticleTeaserReactive from './article-teaser-reactive'
 
 const ArticlesView = ({ articles }) => (
-  <div>
+  <div className="articles-list">
     {
       articles.map((article, i) => (
         <div key={article.id} className="article">
@@ -23,6 +23,10 @@ const ArticlesView = ({ articles }) => (
       .article-teaser {
         flex: 100;
         display: inline-block;
+      }
+
+      .articles-list {
+        width: 75%;
       }
     `}</style>
   </div>

@@ -1,11 +1,11 @@
 import Nav from './nav'
 import Logo from './logo'
-import Link from 'next/prefetch'
+import Link from 'next/link'
 
 export default () => (
   <header>
     <div className="left">
-     <Link href="/">
+     <Link prefetch href="/">
        <a>
          <span className="logo">
            <Logo />

@@ -24,7 +24,7 @@ class ArticlesReactive extends Component {
   }
 
   render () {
-
+    console.log('render() articles-reactive', this.props)
     const state = this.state
     return <ArticlesView {...state} />
   }

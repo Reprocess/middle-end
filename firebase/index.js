@@ -30,19 +30,15 @@ export async function getArticle (id) {
 export async function getAllArticles () {
 
   const ids = await RESPONSE_FROM
-                                .child(Refs.BLOG)
+                                .child(Refs.ARTICLES)
                                 .once('value')
 
   let articles = [];
-  Object.values(ids.val()).forEach((articlesArray) => {
-    Object.values(articlesArray).forEach((article) => {
+  Object.values(ids.val()).forEach((article) => {
       articles.push(article)
-    });
   });
 
-  const result = articles.map(article => transformArticleMeta(article))
-
-  return result;
+  return articles;
 }
 
 export async function getAllCategories() {

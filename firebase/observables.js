@@ -6,14 +6,14 @@ import Refs from './refs'
 export function observeArticlesMetaList (fn) {
 
   const requestData = () => fn()
-  const Ref = Refs.BLOG_HOME
+  const Ref = Refs.TEASERS
   return setupFirebaseArticlesListener(Ref, requestData)
 }
 
 export function observeArticleMeta (id, fn) {
 
   const requestData = (data) => fn(transformArticleMeta(data.val()))
-  const Ref = Refs.BLOG_HOME
+  const Ref = Refs.TEASERS
   return setupFirebaseIdListener(Ref, id, requestData)
 }
 

@@ -1,14 +1,13 @@
-const BLOG = 'blog'
+const TEASERS = 'teasers'
 const HOME = 'home'
 const ARTICLES = 'articles'
 const PUBLIC = 'public'
 const CATEGORIES = 'categories'
 
 export default {
-  BLOG,
+  TEASERS,
   HOME,
   ARTICLES,
   PUBLIC,
-  BLOG_HOME: `${BLOG}/${HOME}`,
   CATEGORIES
 }

@@ -1,28 +1,28 @@
-import Link from 'next/link'
+import Link from 'next/prefetch'
 import uuidV4 from 'uuid/v4'
 
-const ArticlesView = ({ categories }) => (
+const Categories = ({ categories }) => (
     <div>
-        <Link prefetch
+        <Link
             key={uuidV4()}
             href={'/'}>
-            <a>all</a>
+            <a>all<br /></a>
         </Link>
         {categories.map((category) => {
             const href = "/?category=" + category;
             return (
-                <Link prefetch
+                <Link
                     key={uuidV4()}
                     href={href}>
-                        <a> | {category}</a>
+                        <a><hr />{category}</a>
                 </Link>
             )
         })}
     </div>
 )
 
-export default ArticlesView
+export default Categories
 
-ArticlesView.propTypes = {
-  categories: React.PropTypes.array,
+Categories.propTypes = {
+  categories: React.PropTypes.array.isRequired,
 }

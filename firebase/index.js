@@ -5,8 +5,7 @@ import Refs from './refs'
 export async function getArticles (location = Refs.HOME) {
 
   const ids = await RESPONSE_FROM
-                                .child(Refs.BLOG)
-                                .child(location)
+                                .child(Refs.TEASERS)
                                 .once('value')
   const articles = await Promise.all(
     transformResponseToArray(ids.val())
@@ -30,15 +29,18 @@ export async function getArticle (id) {
 export async function getAllArticles () {
 
   const ids = await RESPONSE_FROM
-                                .child(Refs.ARTICLES)
+                                .child(Refs.TEASERS)
                                 .once('value')
 
   let articles = [];
+
   Object.values(ids.val()).forEach((article) => {
-      articles.push(article)
+    articles.push(article)
   });
 
-  return articles;
+  const result = articles.map(article => transformArticleMeta(article))
+
+  return result;
 }
 
 export async function getAllCategories() {

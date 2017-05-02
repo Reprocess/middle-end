@@ -1,15 +1,15 @@
-import Link from 'next/link'
-import uuidV4 from 'uuid/v4'
+import uuidV4 from 'uuid/v4';
 
-const LatestPosts = ({ postsArray }) => (
+const LatestPosts = ({ articles }) => (
     <div>
-        <h4>First Post</h4>
-        <h4>Second Post</h4>
+        {articles.map((article) => (
+            <h4 key={uuidV4()}>{article.title}</h4>
+        ))}
     </div>
 )
 
 export default LatestPosts
 
 LatestPosts.propTypes = {
-    postsArray: React.PropTypes.array,
+    articles: React.PropTypes.array.isRequired,
 }

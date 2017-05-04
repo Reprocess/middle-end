@@ -2,10 +2,12 @@ import RESPONSE_FROM from './database'
 import { transformArticleMeta, transformResponseToArray } from './transforms'
 import Refs from './refs'
 
-export async function getArticles (location = Refs.HOME) {
+export async function getArticles (location = 'home') {
 
   const ids = await RESPONSE_FROM
                                 .child(Refs.TEASERS)
+                                .orderByChild('category')
+                                .equalTo(location)
                                 .once('value')
   const articles = await Promise.all(
     transformResponseToArray(ids.val())

@@ -3,6 +3,7 @@ import uuidV4 from 'uuid/v4'
 
 const Categories = ({ categories }) => (
     <div>
+        <h3>CATEGORIES</h3>
         <Link
             key={uuidV4()}
             href={'/'}>

@@ -46,7 +46,7 @@ const Story = ({ stringifiedStoryEditorState }) => <div>
 
 
 Story.propTypes = {
-  stringifiedStoryEditorState: React.PropTypes.array.isRequired
+  stringifiedStoryEditorState: React.PropTypes.string.isRequired
 }
 
 export default Story

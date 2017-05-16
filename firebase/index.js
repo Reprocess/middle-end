@@ -53,3 +53,19 @@ export async function getAllCategories() {
 
   return ids.val();
 }
+
+export async function getComments(id) {
+  
+  const ids = await RESPONSE_FROM
+                                .child(Refs.COMMENTS)
+                                .child(id)
+                                .once('value')
+
+  let comments = [];
+  Object.keys(ids.val()).map(function(objectKey, index) {
+    comments.push(ids.val()[objectKey]);
+    comments[index].key = objectKey;
+  });
+
+  return comments;
+}

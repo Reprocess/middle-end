@@ -1,4 +1,4 @@
-import Link from 'next/prefetch'
+import Link from 'next/link'
 import uuidV4 from 'uuid/v4'
 
 const Categories = ({ categories }) => (
@@ -6,7 +6,8 @@ const Categories = ({ categories }) => (
         <h3>CATEGORIES</h3>
         <Link
             key={uuidV4()}
-            href={'/'}>
+            href={'/'}
+            prefetch>
             <a>all<br /></a>
         </Link>
         {categories.map((category) => {
@@ -14,7 +15,8 @@ const Categories = ({ categories }) => (
             return (
                 <Link
                     key={uuidV4()}
-                    href={href}>
+                    href={href}
+                    prefetch>
                         <a><hr />{category}</a>
                 </Link>
             )

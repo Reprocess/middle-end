@@ -1,5 +1,4 @@
 import React, {PropTypes, Component} from 'react';
-import Link from 'next/prefetch'
 import uuidV4 from 'uuid/v4'
 import CategoriesList from './categories';
 import LatestPostsList from './latest-posts';

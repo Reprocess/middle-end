@@ -20,7 +20,7 @@ export default class extends Component {
     const { id, story, comments } = this.props
     return <Page>
              <ArticleStoryReactive id={id} story={story} />
-             <CommentsList comments={comments} />
+             { comments !== null ? <CommentsList comments={comments} /> : <div/>}
              <CommentForm id={id} />
            </Page>
   }

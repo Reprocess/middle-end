@@ -61,11 +61,14 @@ export async function getComments(id) {
                                 .child(id)
                                 .once('value')
 
-  let comments = [];
-  Object.keys(ids.val()).map(function(objectKey, index) {
-    comments.push(ids.val()[objectKey]);
-    comments[index].key = objectKey;
-  });
-
-  return comments;
+  if(ids.val() !== null) {
+    let comments = [];
+    Object.keys(ids.val()).map(function(objectKey, index) {
+      comments.push(ids.val()[objectKey]);
+      comments[index].key = objectKey;
+    });
+    return comments;
+  } else {
+    return null;
+  }
 }

@@ -31,7 +31,7 @@ class Sidebar extends Component {
             }
         ]
 
-        const { articles, categories } = this.props;
+        const { articles, categories, popularityArticles } = this.props;
 
         return (
             <div className="sidebar">
@@ -42,7 +42,7 @@ class Sidebar extends Component {
                 </div>
                 <div>
                     <h3>LATEST POSTS</h3>
-                    <LatestPostsList articles={articles} />
+                    <LatestPostsList articles={popularityArticles} />
                 </div>
                 <CategoriesList categories={categories} />
                 <PopularAndComments articles={articles} />

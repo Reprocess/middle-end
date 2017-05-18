@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Page from '../components/page'
 import ArticlesReactive from '../components/articles-reactive'
 import Sidebar from '../components/sidebar'
-import { getArticles, getAllArticles, getAllCategories } from '../firebase'
+import { getArticles, getAllArticles, getAllCategories, getPopularityArticles } from '../firebase'
 
 export default class extends Component {
 
@@ -14,16 +14,18 @@ export default class extends Component {
     } else {
       articles = await getAllArticles();
     }
+    const popularityArticles = await getPopularityArticles();
+    console.log(popularityArticles);
     const categories = await getAllCategories();
 
-    return { articles, categories }
+    return { articles, categories, popularityArticles }
   }
 
   render () {
 
-    const { articles, categories } = this.props
+    const { articles, categories, popularityArticles } = this.props
     return <Page>
-             <Sidebar categories={categories} articles={articles} />
+             <Sidebar categories={categories} articles={articles} popularityArticles={popularityArticles} />
              <ArticlesReactive articles={articles} />
            </Page>
   }

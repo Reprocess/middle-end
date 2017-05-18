@@ -3,7 +3,7 @@ import Page from '../components/page'
 import ArticleStoryReactive from '../components/article-story-reactive'
 import CommentForm from '../components/comment-form'
 import CommentsList from '../components/comments-list'
-import { getArticle, getComments } from '../firebase'
+import { getArticle, getComments, popularityCheck } from '../firebase'
 
 export default class extends Component {
 
@@ -11,6 +11,7 @@ export default class extends Component {
 
     const story = await getArticle(id)
     const comments = await getComments(id)
+    popularityCheck(id);
     console.log(comments);
     return { story, comments, id }
   }

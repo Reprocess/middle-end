@@ -1,5 +1,10 @@
 import RESPONSE_FROM from './database'
-import { transformArticleMeta, transformResponseToArray } from './transforms'
+import {
+  transformArticleMeta,
+  transformResponseToArray,
+  transformPopularityArticlesToArray,
+  sortArticlesByPopularityDescending,
+} from './transforms'
 import { setCookie, checkCookie } from './../utils/cookies'
 import Refs from './refs'
 
@@ -105,41 +110,36 @@ export async function popularityCheck(id) {
 }
 
 export async function getPopularityArticles() {
+  const popularityArticlesTeasers = await getPopularityArticlesTeasers();
+  const transformedArticles = await Promise.all(transformResponseToArray(popularityArticlesTeasers));
+  return transformedArticles.map(article => transformArticleMeta(article));
+}
 
-  console.log('Downloading popularity articles');
+async function getSortedArticlesArray() {
+  const articlesKeys = await getMostPopularArticlesKeys();
+  const idsArray = transformPopularityArticlesToArray(articlesKeys);
+  idsArray.sort(sortArticlesByPopularityDescending);
+  return idsArray;
+}
+
+async function getMostPopularArticlesKeys() {
   const ids = await RESPONSE_FROM
                                 .child(Refs.POPULARITY)
                                 .orderByValue()
                                 .limitToLast(10)
-                                .once('value')
+                                .once('value');
+  return ids.val();
+}
 
-  const idsArray = []
-  Object.keys(ids.val()).forEach((key, i) => {
-    idsArray.push({popularity: ids.val()[key]})
-    idsArray[i].key = key
-  })
-
-  idsArray.sort((value1, value2) => {
-    return value2.popularity - value1.popularity
-  })
-
-  const articles = {}
-
-  for(let i = 0; i < idsArray.length; i += 1) {
+async function getPopularityArticlesTeasers() {
+  const sortedArticles = await getSortedArticlesArray();
+  const articles = {};
+  for(let i = 0; i < sortedArticles.length; i += 1) {
     const id = await RESPONSE_FROM
-                                .child(Refs.TEASERS)
-                                .child(idsArray[i].key)
-                                .once('value')
-
-    articles[idsArray[i].key] = id.val();
-  }
-
-  const transformedArticles = await Promise.all(
-    transformResponseToArray(articles)
-  )
-
-  const result = transformedArticles.map(article => transformArticleMeta(article))
-
-  return result
-
+                                  .child(Refs.TEASERS)
+                                  .child(sortedArticles[i].key)
+                                  .once('value');
+    articles[sortedArticles[i].key] = id.val();
+  };
+  return articles;
 }

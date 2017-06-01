@@ -18,3 +18,18 @@ export function transformResponseToArray (dataSnapshotValue) {
       ? []
       : Object.keys(dataSnapshotValue).map(function (key) { return dataSnapshotValue[key] })
 }
+
+export function transformPopularityArticlesToArray(object) {
+  const array = [];
+
+  Object.keys(object).forEach((key, index) => {
+    array.push({popularity: object[key]});
+    array[index].key = key;
+  });
+
+  return array;
+}
+
+export function sortArticlesByPopularityDescending(article1, article2) {
+  return article2.popularity - article1.popularity;
+}

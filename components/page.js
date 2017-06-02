@@ -1,40 +1,44 @@
 import Header from './header'
 import Meta from './meta'
 import Footer from './footer'
+import TopBar from './top-bar'
 
 const Page =  ({ children }) => (
-  <div className="main">
+  <div className="page-wrapper">
     <Meta />
-    <Header />
+    <TopBar/>
+    <div className="main">
+      <Header />
 
-    <div className="page">
-      { children }
-    </div>
+      <div className="page">
+        { children }
+      </div>
 
-    <Footer />
+      <Footer />
 
-    <style jsx>{`
-      .main {
-        width: 85%;
-        margin: auto;
-        padding: 10px 0 0 0;
-      }
-
-      .page {
-        color: #828282;
-        background: #fff;
-        padding: 3px 10px;
-      }
-
-      @media (max-width: 750px) {
+      <style jsx>{`
         .main {
-          padding: 0;
-          width: auto;
+          width: 1100px;
+          margin: auto;
+          padding: 20px 0 0 0;
         }
-      }
-    `}</style>
+
+        .page {
+          color: #828282;
+          background: #fff;
+          padding: 3px 10px;
+        }
+
+        @media (max-width: 750px) {
+          .main {
+            padding: 0;
+            width: auto;
+          }
+        }
+      `}</style>
+    </div>
   </div>
-)
+);
 
 Page.propTypes = {
     children: React.PropTypes.node.isRequired

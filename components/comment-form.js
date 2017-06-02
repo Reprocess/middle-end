@@ -20,14 +20,10 @@ class Sidebar extends Component {
     const { emailValue, nameValue, commentValue, websiteValue } = this.state;
     const { id } = this.props;
 
-    console.log(RESPONSE_FROM);
-
     const response = RESPONSE_FROM
                  .child('comments')
                  .child(id)
                  .push();
-
-    console.log(response);
 
     response.set({
       email: emailValue,
@@ -38,8 +34,6 @@ class Sidebar extends Component {
     }).then(() => {
       window.location.reload();
     });
-
-    console.log(response);
   }
 
   onChange(type, value) {

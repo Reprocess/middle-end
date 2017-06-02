@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import uuidV4 from 'uuid/v4'
 
 const LatestPosts = ({ postsArray }) => (

@@ -12,7 +12,6 @@ export default class extends Component {
     const story = await getArticle(id)
     const comments = await getComments(id)
     popularityCheck(id);
-    console.log(comments);
     return { story, comments, id }
   }
 

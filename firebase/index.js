@@ -81,16 +81,12 @@ export async function getComments(id) {
 
 export async function popularityCheck(id) {
 
-  console.log('here');
-
   if (!checkCookie(id)) {
-    console.log('checked')
     const popularity = await RESPONSE_FROM
                                           .child(Refs.POPULARITY)
                                           .child(id)
                                           .once('value')
     if (popularity.val()) {
-      console.log()
       const changePopularity = await RESPONSE_FROM
                                                   .child(Refs.POPULARITY)
                                                   .child(id)
@@ -103,8 +99,6 @@ export async function popularityCheck(id) {
                                                   .set(1)
       setCookie(id, 'true', 10000)
     }
-  } else {
-    console.log('cookie exists')
   }
 
 }

@@ -15,7 +15,6 @@ export default class extends Component {
       articles = await getAllArticles();
     }
     const popularityArticles = await getPopularityArticles();
-    console.log(popularityArticles);
     const categories = await getAllCategories();
 
     return { articles, categories, popularityArticles }

@@ -12,7 +12,6 @@ export default class extends Component {
   render () {
 
     const { renderLocation } = this.props
-    console.log('renderLocation', renderLocation)
 
     return <Page>
       <RenderLocationTest

@@ -15,18 +15,13 @@ const ArticlesView = ({ articles }) => (
     <style jsx>{`
       .article {
         display: flex;
-        margin: 10px 0;
-        padding: 10px;
-        background-color: aqua;
-      }
-
-      .article-teaser {
-        flex: 100;
-        display: inline-block;
+        margin-bottom: 40px;
+        border-bottom: 1px solid #e1e1e1;
       }
 
       .articles-list {
-        width: 75%;
+        width: 730px;
+        float: left;
       }
     `}</style>
   </div>

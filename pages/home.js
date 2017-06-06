@@ -24,8 +24,8 @@ export default class extends Component {
 
     const { articles, categories, popularityArticles } = this.props
     return <Page>
-             <Sidebar categories={categories} articles={articles} popularityArticles={popularityArticles} />
              <ArticlesReactive articles={articles} />
+             <Sidebar categories={categories} articles={articles} popularityArticles={popularityArticles} />
            </Page>
   }
 

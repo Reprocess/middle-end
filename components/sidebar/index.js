@@ -9,69 +9,80 @@ import FacebookPageBox from './facebook-page-box';
 import FreeTrainingAd from './free-training-ad';
 
 class Sidebar extends Component {
-    render() {
-        const socialMedias = [
-            {
-                title: 'Facebook',
-                link: 'https://facebook.com/traineffective'
-            },
-            {
-                title: 'YouTube',
-                link: 'https://youtube.com/traineffective'
-            },
-            {
-                title: 'Instagram',
-                link: 'https://instagram.com/traineffective'
-            },
-            {
-                title: 'Twitter',
-                link: 'https://twitter.com/traineffective'
-            },
-            {
-                title: 'Snapchat',
-                link: 'https://snapchat.com/add/traineffective'
-            }
-        ]
+	constructor(props) {
+		super(props);
+		this.state = {
+			selectedTab: 'popular',
+		};
 
-        const { articles, categories, popularityArticles } = this.props;
+		this.handleClickOnTab = this.handleClickOnTab.bind(this);
+	}
 
-        return (
-            <div className="sidebar">
-                <FreeTrainingAd />
-                <LatestPostsList articles={popularityArticles} />
-                <CategoriesList categories={categories} />
-                <PopularAndComments articles={articles} />
-                <FacebookPageBox />
-                <SocialButtons
-                    socialMedias={socialMedias}
-                />
-                <EmailSignupForm />
-                <iframe name="subscribe-iframe" className="email-subscribe-iframe" />
-                <style jsx>{`
-                    .sidebar {
-                        margin: 0 2.5% 0 2.5%;
-                        width: 20%;
-                        float:right;
-                    }
+	handleClickOnTab(selectedTab) {
+		if (this.state.selectedTab != selectedTab)
+			this.setState({ selectedTab });
+	}
 
-                    input {
-                        width: 100%;
-                    }
+	render() {
+		const socialMedias = [
+			{
+				title: 'Facebook',
+				link: 'https://facebook.com/traineffective'
+			},
+			{
+				title: 'YouTube',
+				link: 'https://youtube.com/traineffective'
+			},
+			{
+				title: 'Instagram',
+				link: 'https://instagram.com/traineffective'
+			},
+			{
+				title: 'Twitter',
+				link: 'https://twitter.com/traineffective'
+			},
+			{
+				title: 'Snapchat',
+				link: 'https://snapchat.com/add/traineffective'
+			}
+		]
 
-                    img {
-                        max-width: 320no na wópx;
-                    }
+		const { articles, categories, popularityArticles } = this.props;
+		const { selectedTab } = this.state;
 
-                    iframe {
-                        border: none;
-                        visibility: visible;
-                        width: 300px;
-                        height: 214px;
-                    }
-                `}</style>
-            </div>
-        )
-    }
+		return (
+			<div className="sidebar">
+				<FreeTrainingAd />
+				<LatestPostsList articles={popularityArticles} />
+				<CategoriesList categories={categories} />
+				<PopularAndComments
+					articles={articles}
+					selectedTab={selectedTab}
+					handleClickOnTab={this.handleClickOnTab}
+					/>
+				<FacebookPageBox />
+				<SocialButtons
+					socialMedias={socialMedias}
+					/>
+				<EmailSignupForm />
+				<iframe name="subscribe-iframe" className="email-subscribe-iframe" />
+				<style jsx>{`
+					.sidebar {
+						width: 300px;
+						margin-left: 25px;
+						float:right;
+					}
+
+					iframe {
+						border: none;
+						visibility: visible;
+						width: 300px;
+						height: 214px;
+					}
+				`}</style>
+			</div>
+		)
+	}
 }
 
 export default Sidebar

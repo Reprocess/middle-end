@@ -10,8 +10,9 @@ export default () => (
   <div>
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link href="http://fonts.googleapis.com/css?family=Titillium+Web%3A300%2C400%2C600%2C700&ver=4.7.5" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans|Titillium+Web" rel="stylesheet" />
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?cp0z2c" />
       <meta charSet="utf-8" />
     </Head>
     <style jsx global>{`

@@ -77,7 +77,7 @@ export default () => (
             prefetch
             href="/"
             >
-            <div className="home">
+            <div className="home link-container">
               <a>home</a>
             </div>
           </Link>
@@ -86,7 +86,7 @@ export default () => (
             prefetch
             href="/"
             >
-            <div className="blog">
+            <div className="blog link-container">
               <a>blog</a>
             </div>
           </Link>
@@ -95,7 +95,7 @@ export default () => (
             prefetch
             href="/"
             >
-            <div className="categories">
+            <div className="categories link-container">
               <a>categories</a>
             </div>
           </Link>
@@ -104,7 +104,7 @@ export default () => (
           prefetch
           href="/"
           >
-            <div className="about-us">
+            <div className="about-us link-container">
               <a>about us</a>
             </div>
         </Link>
@@ -113,7 +113,7 @@ export default () => (
           prefetch
           href="/"
           >
-            <div className="contact">
+            <div className="contact link-container">
               <a>contact</a>
             </div>
         </Link>
@@ -123,17 +123,7 @@ export default () => (
           padding: 0 16px;
           width: 100%;
           box-sizing: border-box;
-          border-right: 0!important;
-        }
-
-        .nav-container:hover {
-          background-color: inherit!important;
-        }
-
-        nav:after {
-          content: "";
-          display: table;
-          clear: both;
+          height: 50px;
         }
 
         nav {
@@ -141,6 +131,7 @@ export default () => (
           border-top: 1px solid #6d0909;
           border-bottom: 4px solid #6d0909;
           background-color: #830d0d;
+          height: 100%;
         }
 
         a {
@@ -154,9 +145,8 @@ export default () => (
           color: #fff;
         }
 
-        div {
+        .link-container {
           border-right: 1px solid #6d0909;
-          width: 20%;
           box-sizing: border-box;
           float: left;
           text-align: center;
@@ -164,7 +154,7 @@ export default () => (
           cursor: pointer;
         }
 
-        div:hover {
+        .link-container:hover {
           background-color: #6d0909;
         }
 

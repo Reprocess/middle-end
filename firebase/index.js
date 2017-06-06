@@ -111,9 +111,11 @@ export async function getPopularityArticles() {
 
 async function getSortedArticlesArray() {
   const articlesKeys = await getMostPopularArticlesKeys();
-  const idsArray = transformPopularityArticlesToArray(articlesKeys);
-  idsArray.sort(sortArticlesByPopularityDescending);
-  return idsArray;
+  if (articlesKeys) {
+    const idsArray = transformPopularityArticlesToArray(articlesKeys);
+    idsArray.sort(sortArticlesByPopularityDescending);
+    return idsArray;
+  }
 }
 
 async function getMostPopularArticlesKeys() {

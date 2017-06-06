@@ -9,6 +9,15 @@ const freeTrainingAd = ({}) => (
             className="free-training-ad-photo"
             />
       </a>
+      <style jsx>{`
+        .sidebar-free-training-ad img {
+          width: 100%;
+        } 
+
+        div {
+          margin-bottom: 35px;
+        }
+      `}</style>
   </div>
 );
 

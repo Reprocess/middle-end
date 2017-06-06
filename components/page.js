@@ -26,7 +26,14 @@ const Page =  ({ children }) => (
         .page {
           color: #828282;
           background: #fff;
-          padding: 3px 10px;
+          padding: 35px 15px 0;
+          width: 100%;
+        }
+
+        .page:after {
+          content: "";
+          display: table;
+          clear: both;
         }
 
         @media (max-width: 750px) {

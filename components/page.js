@@ -13,10 +13,9 @@ const Page =  ({ children }) => (
       <div className="page">
         { children }
       </div>
-
-      <Footer />
-
-      <style jsx>{`
+    </div>
+    <Footer />
+    <style jsx>{`
         .main {
           width: 1100px;
           margin: auto;
@@ -43,7 +42,6 @@ const Page =  ({ children }) => (
           }
         }
       `}</style>
-    </div>
   </div>
 );
 

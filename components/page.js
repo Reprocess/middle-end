@@ -3,12 +3,14 @@ import Meta from './meta'
 import Footer from './footer'
 import TopBar from './top-bar'
 
-const Page =  ({ children }) => (
+const Page =  ({ categories, children }) => (
   <div className="page-wrapper">
     <Meta />
-    <TopBar/>
+    <TopBar />
     <div className="main">
-      <Header />
+      <Header
+        categories={categories}
+        />
 
       <div className="page">
         { children }

@@ -22,7 +22,6 @@ class Sidebar extends Component {
 
     const response = RESPONSE_FROM
                  .child('comments')
-                 .child(id)
                  .push();
 
     response.set({
@@ -31,6 +30,7 @@ class Sidebar extends Component {
       comment: commentValue,
       website: websiteValue,
       date: Date.now(),
+      articleKey: id,
     }).then(() => {
       window.location.reload();
     });

@@ -2,7 +2,7 @@ import uuidV4 from 'uuid/v4';
 import Link from 'next/link';
 import Moment from 'react-moment'
 
-const popularAndComments = ({ articles, selectedTab, handleClickOnTab }) => (
+const popularAndComments = ({ articles, comments, selectedTab, handleClickOnTab }) => (
   <div className="popular-and-comments-container">
     <ul>
       <li
@@ -47,10 +47,16 @@ const popularAndComments = ({ articles, selectedTab, handleClickOnTab }) => (
         <div 
           key={uuidV4()}
           className="article-container">
-          <h5 className="comment-username">shaktar says:</h5>
-          <Link prefetch href={`/`}>
-            <a className="comment-text">Amateurs making as much as pro's in NL is true, but only very very sporadically. But, it's almost certainly bl...</a>
-          </Link>
+          { comments !== null ? comments.map(comment => (
+            <div>
+              <h5 className="comment-username">{comment.name} says:</h5>
+              <Link prefetch href={`/article?id=${comment.articleKey}`}>
+                <a className="comment-text">{comment.comment}</a>
+              </Link>
+            </div>
+          )) : 
+          <h5 className="no-comments">There is no comments</h5>}
+          
         </div>
       </div> : <div/>}
     </div>
@@ -167,6 +173,18 @@ const popularAndComments = ({ articles, selectedTab, handleClickOnTab }) => (
         text-decoration: none;
         word-wrap: break-word;
         font-size: 13px;
+      }
+
+      .no-comments {
+        margin-bottom: 0;
+        word-wrap: break-word;
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        color: #797979;
+        text-align: center;
+        margin-top: 20px;
       }
     `}</style>
   </div>

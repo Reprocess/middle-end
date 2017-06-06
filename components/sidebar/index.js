@@ -47,7 +47,7 @@ class Sidebar extends Component {
 			}
 		]
 
-		const { articles, categories, popularityArticles } = this.props;
+		const { articles, categories, popularityArticles, comments } = this.props;
 		const { selectedTab } = this.state;
 
 		return (
@@ -57,6 +57,7 @@ class Sidebar extends Component {
 				<CategoriesList categories={categories} />
 				<PopularAndComments
 					articles={articles}
+					comments={comments}
 					selectedTab={selectedTab}
 					handleClickOnTab={this.handleClickOnTab}
 					/>

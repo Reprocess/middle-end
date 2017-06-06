@@ -64,7 +64,8 @@ export async function getComments(id) {
   
   const ids = await RESPONSE_FROM
                                 .child(Refs.COMMENTS)
-                                .child(id)
+                                .orderByChild('articleKey')
+                                .equalTo(id)
                                 .once('value')
 
   if(ids.val() !== null) {
@@ -73,6 +74,29 @@ export async function getComments(id) {
       comments.push(ids.val()[objectKey]);
       comments[index].key = objectKey;
     });
+    return comments;
+  } else {
+    return null;
+  }
+}
+
+export async function getCommentsForSidebar() {
+  const ids = await RESPONSE_FROM
+                                 .child(Refs.COMMENTS)
+                                 .limitToLast(4)
+                                 .once('value')
+
+  if(ids.val() !== null) {
+    let comments = [];
+    Object.keys(ids.val()).map(function(objectKey, index) {
+      comments.push(ids.val()[objectKey]);
+      comments[index].key = objectKey;
+    });
+    comments.forEach(comment => {
+      if (comment.comment.length > 110) {
+        comment.comment = comment.comment.substring(110, -1) + '...';
+      }
+    })
     return comments;
   } else {
     return null;

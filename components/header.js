@@ -2,7 +2,7 @@ import Nav from './nav'
 import Logo from './logo'
 import Link from 'next/link'
 
-export default () => (
+export default ({ categories }) => (
   <div>
     <header className="float-fix">
       <div className="left">
@@ -72,52 +72,61 @@ export default () => (
       `}</style>
     </header>
     <div className="nav-container">
-      <nav>
-          <Link
-            prefetch
-            href="/"
-            >
-            <div className="home link-container">
-              <a>home</a>
-            </div>
-          </Link>
-        
-          <Link
-            prefetch
-            href="/"
-            >
-            <div className="blog link-container">
-              <a>blog</a>
-            </div>
-          </Link>
-        
-          <Link
-            prefetch
-            href="/"
-            >
-            <div className="categories link-container">
-              <a>categories</a>
-            </div>
-          </Link>
-      
+      <ul className="nav">
         <Link
           prefetch
           href="/"
           >
-            <div className="about-us link-container">
-              <a>about us</a>
-            </div>
+          <li className="nav-link">
+            <a className="nav-a">home</a>
+          </li>
         </Link>
-      
         <Link
           prefetch
           href="/"
           >
-            <div className="contact link-container">
-              <a>contact</a>
-            </div>
+          <li className="nav-link">
+            <a className="nav-a">blog</a>
+          </li>
         </Link>
-      </nav>
+        <Link
+          prefetch
+          href="/"
+          >
+          <li className="nav-link">
+            <a className="nav-a">categories</a>
+            <ul className="sub-menu">
+              {categories.map(category => (
+                <Link
+                  prefetch
+                  href="/"
+                  >
+                  <li className="sub-menu-link">
+                    <a className="sub-menu-a">{category}</a>
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          </li>
+        </Link>
+        <Link
+          prefetch
+          href="/"
+          >
+          <li className="nav-link">
+            <a className="nav-a">about us</a>
+          </li>
+        </Link>
+        <Link
+          prefetch
+          href="/"
+          >
+          <li className="nav-link">
+            <a className="nav-a">contact</a>
+          </li>
+        </Link>
+        
+      </ul>
       <style jsx>{`
         .nav-container {
           padding: 0 16px;
@@ -126,44 +135,94 @@ export default () => (
           height: 50px;
         }
 
-        nav {
-          width: 100%;
-          border-top: 1px solid #6d0909;
-          border-bottom: 4px solid #6d0909;
+        .nav {
           background-color: #830d0d;
+          border-bottom: 4px solid #6d0909;
+          border-top: 1px solid #6d0909;
+          display: table;
+          float: left;
+          width: 100%;
+          list-style: inside;
+          margin: 0;
+          padding: 0;
+          font-size: 100%;
+          vertical-align: baseline;
           height: 100%;
         }
 
-        a {
-          padding: 0 10px;
-          font-size: 15px;
-          line-height: 45px;
-          text-align: center;
-          font-weight: bold;
-          text-transform: uppercase;
-          text-decoration: none;
-          color: #fff;
+        .nav-link:first-of-type {
+          border-left: 1px solid #6d0909;
         }
 
-        .link-container {
+        .nav-link {
           border-right: 1px solid #6d0909;
-          box-sizing: border-box;
-          float: left;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          vertical-align: middle;
+          display: table-cell;
+          float: none;
+          cursor: pointer;
           text-align: center;
           transition: all .15s ease-in-out;
-          cursor: pointer;
         }
 
-        .link-container:hover {
+        .nav-link:hover {
           background-color: #6d0909;
         }
 
-        .home { width: 16.2%; border-left: 1px solid #6d0909}
-        .blog { width: 14.4%; }
-        .categories { width: 26.15%; }
-        .about-us { width: 22.4%; }
-        .contact { width: 20.85%; }
+        .nav-a {
+          text-decoration: none;
+          color: #fff;
+          margin: 0;
+          padding: 0 10px;
+          font-size: 15px;
+          line-height: 45px;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
 
+        .sub-menu {
+          margin-left: -2;
+          border: 4px solid #6d0909;
+          width: 212px;
+          position: absolute;
+          background: #fff;
+          margin: 0;
+          z-index: 91000;
+          display: none;
+          list-style: none;
+        }
+
+        .sub-menu li {
+          border-bottom: 1px solid #f0f0f0;
+        }
+
+        .sub-menu a:hover {
+          color: #fff;
+          background: #830d0d;
+        }
+
+        .sub-menu a {
+          color: #444;
+          width: auto;
+          display: block;
+          text-align: left;
+          padding: 11px 4px 10px 19px;
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 24px;
+          transition: all .15s ease-in-out;
+        }
+
+        .nav-link:hover .sub-menu {
+          display: block;
+          visibility: visible;
+        }
+
+        .sub-menu li:last-of-type {
+          border-bottom: 0px;
+        }
       `}</style>
     </div>
   </div>

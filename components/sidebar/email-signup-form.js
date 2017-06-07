@@ -63,7 +63,7 @@ const emailSignupForm = ({ socialMedias }) => (
         font-weight: bold;
         border: 2px solid #e1e1e1;
         margin-left: -2px;
-        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
         cursor: pointer;
         border-radius: 1px;
         text-transform: uppercase;

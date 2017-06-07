@@ -1,6 +1,7 @@
 import Nav from './nav'
 import Logo from './logo'
 import Link from 'next/link'
+import uuidV4 from 'uuid/v4'
 
 export default ({ categories }) => (
   <div>
@@ -98,6 +99,7 @@ export default ({ categories }) => (
             <ul className="sub-menu">
               {categories.map(category => (
                 <Link
+                  key={uuidV4()}
                   prefetch
                   href="/"
                   >

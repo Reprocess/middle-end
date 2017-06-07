@@ -19,11 +19,7 @@ const Categories = ({ categories }) => (
           className="category-container"
           key={uuidV4()}
           >
-          <Link
-            href={href}
-            prefetch>
-              <a>{category}</a>
-          </Link>
+          <a href={href}>{category}</a>
         </div>
       )
     })}

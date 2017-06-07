@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import atob from 'atob'
 import Page from '../components/page'
 import ArticlesReactive from '../components/articles-reactive'
 import Sidebar from '../components/sidebar'
@@ -10,10 +11,11 @@ export default class extends Component {
 
     let articles = [];
     if (query.category) {
-      articles = await getArticles(query.category);
+      articles = await getArticles(scope.atob(query.category));
     } else {
       articles = await getAllArticles();
     }
+    console.log(query.category);
     const popularityArticles = await getPopularityArticles();
     const categories = await getAllCategories();
     const comments = await getCommentsForSidebar();

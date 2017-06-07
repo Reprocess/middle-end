@@ -66,6 +66,7 @@ const NavigationBar = ({}) => (
       .top-bar_container-left a {
         text-decoration: none;
         margin: 0 6px;
+        color: #e9e9e9;
       }
     `}</style>
   </div>

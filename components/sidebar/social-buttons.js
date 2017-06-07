@@ -5,11 +5,13 @@ const SocialButtons = ({ socialMedias }) => (
     <h3>FOLLOW US</h3>
     <div className="social-medias-container">
       {socialMedias.map((socialMedia) => (
-        <div className="social-media-link">
+        <div
+          className="social-media-link"
+          key={uuidV4()}
+          >
           <a
             href={socialMedia.link}
             target="_blank"
-            key={uuidV4()}
             className={`socicon socicon-${socialMedia.title.toLowerCase()}`}
             >
           </a>

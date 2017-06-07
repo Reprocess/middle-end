@@ -7,26 +7,27 @@ const LatestPosts = ({ articles }) => (
     <h3>LATEST POSTS</h3>
       <ul>
         {articles.map((article) => (
-          <div 
-            key={uuidV4()}
-            className="article-container">
-            <Link prefetch href={`/article?id=${article.id}`}>
-              <a>
-                <img
-                  src={article.teaser}
-                  alt={article.title}
-                  />
-              </a>
-            </Link>
-            <Link prefetch href={`/article?id=${article.id}`}>
-              <a>
-                <h5>{article.title}</h5>
-              </a>
-            </Link>
-            <p className="meta">
-              {article.author} | <Moment format={(new Date().getFullYear() - new Date(article.date).getFullYear()) > 0 ? "MMMM DD, YYYY" : "MMMM DD"}>{article.date}</Moment>
-            </p>
-          </div>
+          <li key={uuidV4()}>
+            <div
+              className="article-container">
+              <Link prefetch href={`/article?id=${article.id}`}>
+                <a>
+                  <img
+                    src={article.teaser}
+                    alt={article.title}
+                    />
+                </a>
+              </Link>
+              <Link prefetch href={`/article?id=${article.id}`}>
+                <a>
+                  <h5>{article.title}</h5>
+                </a>
+              </Link>
+              <p className="meta">
+                {article.author} | <Moment format={(new Date().getFullYear() - new Date(article.date).getFullYear()) > 0 ? "MMMM DD, YYYY" : "MMMM DD"}>{article.date}</Moment>
+              </p>
+            </div>
+          </li>
         ))}
       </ul>
     <style jsx>{`
@@ -55,6 +56,7 @@ const LatestPosts = ({ articles }) => (
         margin-left: 0;
         margin-bottom: 35px;
         border-top: 1px solid #e5e5e5;
+        list-style: none;
       }
 
       .article-container:hover {

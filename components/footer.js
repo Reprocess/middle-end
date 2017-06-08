@@ -73,7 +73,12 @@ export default ({tags}) => (
         <h5 className="title">tags</h5>
         <div className="tagcloud">
           { tags !== null ? tags.map(tag => (
-            <a href={`/?tag=${base64.encode(tag)}`}>{tag}</a>
+            <a
+              href={`/?tag=${base64.encode(tag)}`}
+              key={uuidV4()}
+              >
+              {tag}
+            </a>
           )) : <div />}
         </div>
       </div>

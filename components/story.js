@@ -1,6 +1,5 @@
 const Story = ({ stringifiedStoryEditorState }) => {
   const parsedStoryEditorState = JSON.parse(stringifiedStoryEditorState);
-  console.log(parsedStoryEditorState.entityMap[0])
   return (
     <div>
       <div className="title">

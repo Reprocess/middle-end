@@ -9,7 +9,6 @@ import { setCookie, checkCookie } from './../utils/cookies'
 import Refs from './refs'
 
 export async function getArticles (location = 'home', orderBy = 'category') {
-  console.log(`location : ${location}\norderBy : ${orderBy}`);
   const ids = await RESPONSE_FROM
                                 .child(Refs.TEASERS)
                                 .orderByChild(orderBy)
@@ -34,10 +33,12 @@ export async function getArticle (id) {
   return articleSnapshot ? articleSnapshot.val() : null
 }
 
-export async function getAllArticles () {
+export async function getPageOfArticles(page = 1) {
 
   const ids = await RESPONSE_FROM
                                 .child(Refs.TEASERS)
+                                .orderByValue()
+                                .limitToLast(page * 10)
                                 .once('value')
 
   let articles = [];
@@ -46,7 +47,11 @@ export async function getAllArticles () {
     articles.push(article)
   });
 
-  const result = articles.map(article => transformArticleMeta(article))
+  articles = articles.reverse();
+
+  const articlesArray = articles.slice((page - 1) * 10);
+
+  const result = articlesArray.map(article => transformArticleMeta(article))
 
   return result;
 }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-var base64 = require('base-64')
+import base64 from 'base-64'
 import Page from '../components/page'
 import ArticlesReactive from '../components/articles-reactive'
 import Sidebar from '../components/sidebar'
-import { getArticles, getAllArticles, getAllCategories, getPopularityArticles, getCommentsForSidebar, getAllTags } from '../firebase'
+import { getArticles, getPageOfArticles, getAllCategories, getPopularityArticles, getCommentsForSidebar, getAllTags } from '../firebase'
 
 export default class extends Component {
 
@@ -15,14 +15,17 @@ export default class extends Component {
     } else if (query.tag) {
       articles = await getArticles(base64.decode(query.tag), 'tags');
     } else {
-      articles = await getAllArticles();
+      if (query.page) {
+        articles = await getPageOfArticles(query.page);
+      } else {
+        articles = await getPageOfArticles();
+      }
     }
     
     const popularityArticles = await getPopularityArticles();
     const categories = await getAllCategories();
     const comments = await getCommentsForSidebar();
     const tags = await getAllTags();
-    console.log(tags)
 
     return { articles, categories, popularityArticles, comments, tags }
   }

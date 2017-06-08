@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import uuidV4 from 'uuid/v4';
+import base64 from 'base-64';
 
-export default () => (
+export default ({tags}) => (
   <footer>
     <div className="footer">
       <div className="left">
@@ -70,12 +72,9 @@ export default () => (
       <div className="left">
         <h5 className="title">tags</h5>
         <div className="tagcloud">
-          <a href="http://blog.traineffective.com/tag/become-elite-review/" class="tag-link-39 tag-link-position-1">become elite review</a>
-          <a href="http://blog.traineffective.com/tag/best-soccer-training-program/" class="tag-link-40 tag-link-position-2">best soccer training program</a>
-          <a href="http://blog.traineffective.com/tag/best-soccer-training-program/" class="tag-link-40 tag-link-position-2">best soccer training program</a>
-          <a href="http://blog.traineffective.com/tag/become-elite-review/" class="tag-link-39 tag-link-position-1">become elite review</a>
-          <a href="http://blog.traineffective.com/tag/become-elite-review/" class="tag-link-39 tag-link-position-1">become elite review</a>
-          <a href="http://blog.traineffective.com/tag/best-soccer-training-program/" class="tag-link-40 tag-link-position-2">best soccer training program</a>
+          { tags !== null ? tags.map(tag => (
+            <a href={`/?tag=${base64.encode(tag)}`}>{tag}</a>
+          )) : <div />}
         </div>
       </div>
     </div>
@@ -92,28 +91,28 @@ export default () => (
               >
               <a>Home</a>
             </Link>
-             | 
+            | 
             <Link
               prefetch
               href="http://www.traineffective.com/dashboard"
               >
               <a>Login</a>
             </Link>
-             | 
+            | 
             <Link
               prefetch
               href="http://blog.traineffective.com/affiliate/"
               >
               <a>About</a>
             </Link>
-             | 
+            | 
             <Link
               prefetch
               href="http://blog.traineffective.com/affiliate/"
               >
               <a>Affilliate</a>
             </Link>
-             | 
+            | 
             <Link
               prefetch
               href="http://www.traineffective.com/terms-of-service/"

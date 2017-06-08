@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import uuidV4 from 'uuid/v4'
+import base64 from 'base-64'
 
 const ArticlesView = ({ categories }) => (
     <div>
@@ -9,11 +10,11 @@ const ArticlesView = ({ categories }) => (
             <a>all</a>
         </Link>
         {categories.map((category) => {
-            const href = "/?category=" + category;
+            const href = base64.encode(category);
             return (
                 <Link prefetch
                     key={uuidV4()}
-                    href={href}>
+                    href={`/?category=${href}`}>
                         <a> | {category}</a>
                 </Link>
             )

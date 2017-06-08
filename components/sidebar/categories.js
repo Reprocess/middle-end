@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import uuidV4 from 'uuid/v4'
+import base64 from 'base-64'
 
 const Categories = ({ categories }) => (
   <div className="categories-list">
@@ -13,7 +14,7 @@ const Categories = ({ categories }) => (
       </Link>
     </div>
     {categories.map((category) => {
-      const href = "/?category=" + category;
+      const href = "/?category=" + base64.encode(category);
       return (
         <div
           className="category-container"

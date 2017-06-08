@@ -5,6 +5,7 @@ const PUBLIC = 'public'
 const CATEGORIES = 'categories'
 const COMMENTS = 'comments'
 const POPULARITY = 'popularity'
+const TAGS = 'tags'
 
 export default {
   TEASERS,
@@ -13,5 +14,6 @@ export default {
   PUBLIC,
   CATEGORIES,
   COMMENTS,
- POPULARITY,
+  POPULARITY,
+  TAGS,
 }

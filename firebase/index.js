@@ -8,11 +8,11 @@ import {
 import { setCookie, checkCookie } from './../utils/cookies'
 import Refs from './refs'
 
-export async function getArticles (location = 'home') {
-
+export async function getArticles (location = 'home', orderBy = 'category') {
+  console.log(`location : ${location}\norderBy : ${orderBy}`);
   const ids = await RESPONSE_FROM
                                 .child(Refs.TEASERS)
-                                .orderByChild('category')
+                                .orderByChild(orderBy)
                                 .equalTo(location)
                                 .once('value')
   const articles = await Promise.all(
@@ -162,4 +162,12 @@ async function getPopularityArticlesTeasers() {
     articles[sortedArticles[i].key] = id.val();
   };
   return articles;
+}
+
+export async function getAllTags() {
+  const ids = await RESPONSE_FROM
+                                .child(Refs.TAGS)
+                                .once('value')
+
+  return ids.val();
 }

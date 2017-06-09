@@ -47,16 +47,16 @@ class Sidebar extends Component {
 			}
 		]
 
-		const { articles, categories, popularityArticles, comments } = this.props;
+		const { articles, categories, popularityArticles, comments, lastArticles } = this.props;
 		const { selectedTab } = this.state;
 
 		return (
 			<div className="sidebar">
 				<FreeTrainingAd />
-				<LatestPostsList articles={popularityArticles} />
+				<LatestPostsList articles={lastArticles} />
 				<CategoriesList categories={categories} />
 				<PopularAndComments
-					articles={articles}
+					articles={popularityArticles}
 					comments={comments}
 					selectedTab={selectedTab}
 					handleClickOnTab={this.handleClickOnTab}

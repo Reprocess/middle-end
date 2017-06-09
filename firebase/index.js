@@ -8,19 +8,26 @@ import {
 import { setCookie, checkCookie } from './../utils/cookies'
 import Refs from './refs'
 
-export async function getArticles (location = 'home', orderBy = 'category') {
+export async function getArticles (location = 'home', page = 1, orderBy = 'category') {
   const ids = await RESPONSE_FROM
                                 .child(Refs.TEASERS)
                                 .orderByChild(orderBy)
                                 .equalTo(location)
+                                .limitToLast(page * 10)
                                 .once('value')
-  const articles = await Promise.all(
+
+  let articles = await Promise.all(
     transformResponseToArray(ids.val())
   )
 
-  const result = articles.map(article => transformArticleMeta(article))
+  articles = articles.reverse();
+  console.log(page);
 
-  return result
+  const articlesArray = page !== 1 ? articles.slice((page - 1) * 10 - 1) : articles;
+
+  const result = articlesArray.map(article => transformArticleMeta(article))
+
+  return result;
 }
 
 export async function getArticle (id) {
@@ -49,7 +56,7 @@ export async function getPageOfArticles(page = 1) {
 
   articles = articles.reverse();
 
-  const articlesArray = articles.slice((page - 1) * 10);
+  const articlesArray = page !== 1 ? articles.slice((page - 1) * 10 - 1) : articles;
 
   const result = articlesArray.map(article => transformArticleMeta(article))
 
@@ -134,7 +141,7 @@ export async function popularityCheck(id) {
 
 export async function getPopularityArticles() {
   const popularityArticlesTeasers = await getPopularityArticlesTeasers();
-  const transformedArticles = await Promise.all(transformResponseToArray(popularityArticlesTeasers));
+  let transformedArticles = await Promise.all(transformResponseToArray(popularityArticlesTeasers));
   return transformedArticles.map(article => transformArticleMeta(article));
 }
 
@@ -151,7 +158,7 @@ async function getMostPopularArticlesKeys() {
   const ids = await RESPONSE_FROM
                                 .child(Refs.POPULARITY)
                                 .orderByValue()
-                                .limitToLast(10)
+                                .limitToLast(5)
                                 .once('value');
   return ids.val();
 }
@@ -173,6 +180,39 @@ export async function getAllTags() {
   const ids = await RESPONSE_FROM
                                 .child(Refs.TAGS)
                                 .once('value')
+
+  return ids.val();
+}
+
+export async function getLastArticles() {
+  const ids = await RESPONSE_FROM
+                                .child(Refs.TEASERS)
+                                .limitToLast(5)
+                                .once('value')
+
+  let articles = await Promise.all(
+    transformResponseToArray(ids.val())
+  )
+  articles = articles.reverse()
+  const result = articles.map(article => transformArticleMeta(article))
+
+  return result
+}
+
+export async function getAllArticlesCount() {
+  const ids = await RESPONSE_FROM
+                                 .child(Refs.TEASERS_LENGTHS)
+                                 .child('length')
+                                 .once('value')
+  
+  return ids.val()
+}
+
+export async function getCategoryArticlesCount(category) {
+  const ids = await RESPONSE_FROM
+                                 .child(Refs.TEASERS_LENGTHS)
+                                 .child(`${category} length`)
+                                 .once('value')
 
   return ids.val();
 }

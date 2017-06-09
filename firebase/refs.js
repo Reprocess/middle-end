@@ -6,6 +6,7 @@ const CATEGORIES = 'categories'
 const COMMENTS = 'comments'
 const POPULARITY = 'popularity'
 const TAGS = 'tags'
+const TEASERS_LENGTHS = 'teasersLengths'
 
 export default {
   TEASERS,
@@ -16,4 +17,5 @@ export default {
   COMMENTS,
   POPULARITY,
   TAGS,
+  TEASERS_LENGTHS,
 }

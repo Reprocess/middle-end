@@ -76,7 +76,7 @@ export default ({ categories }) => (
       <ul className="nav">
         <Link
           prefetch
-          href="/"
+          href="http://traineffective.com"
           >
           <li className="nav-link">
             <a className="nav-a">home</a>
@@ -113,7 +113,7 @@ export default ({ categories }) => (
         </Link>
         <Link
           prefetch
-          href="/"
+          href="/about-us"
           >
           <li className="nav-link">
             <a className="nav-a">about us</a>
@@ -121,7 +121,7 @@ export default ({ categories }) => (
         </Link>
         <Link
           prefetch
-          href="/"
+          href="http://traineffective.com/contact"
           >
           <li className="nav-link">
             <a className="nav-a">contact</a>

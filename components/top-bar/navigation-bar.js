@@ -17,13 +17,13 @@ const NavigationBar = ({}) => (
     </Link>
     <Link
       prefetch
-      href="/"
+      href="/about-us"
       >
       <a>about us</a>
     </Link>
     <Link
       prefetch
-      href="/"
+      href="/affiliate"
       >
       <a>affiliate</a>
     </Link>

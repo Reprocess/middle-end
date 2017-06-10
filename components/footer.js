@@ -93,14 +93,14 @@ export default () => (
             | 
             <Link
               prefetch
-              href="http://blog.traineffective.com/affiliate/"
+              href="/about-us"
               >
               <a>About</a>
             </Link>
             | 
             <Link
               prefetch
-              href="http://blog.traineffective.com/affiliate/"
+              href="/affiliate"
               >
               <a>Affilliate</a>
             </Link>

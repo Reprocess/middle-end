@@ -176,14 +176,6 @@ async function getPopularityArticlesTeasers() {
   return articles;
 }
 
-export async function getAllTags() {
-  const ids = await RESPONSE_FROM
-                                .child(Refs.TAGS)
-                                .once('value')
-
-  return ids.val();
-}
-
 export async function getLastArticles() {
   const ids = await RESPONSE_FROM
                                 .child(Refs.TEASERS)

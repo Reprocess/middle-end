@@ -3,7 +3,7 @@ import base64 from 'base-64'
 import Page from '../components/page'
 import ArticlesReactive from '../components/articles-reactive'
 import Sidebar from '../components/sidebar'
-import { getArticles, getPageOfArticles, getAllCategories, getPopularityArticles, getCommentsForSidebar, getAllTags, getLastArticles, getAllArticlesCount, getCategoryArticlesCount } from '../firebase'
+import { getArticles, getPageOfArticles, getAllCategories, getPopularityArticles, getCommentsForSidebar, getLastArticles, getAllArticlesCount, getCategoryArticlesCount } from '../firebase'
 
 export default class extends Component {
 
@@ -23,8 +23,6 @@ export default class extends Component {
       } else {
         articles = await getArticles(category);
       }
-    } else if (query.tag) {
-      articles = await getArticles(base64.decode(query.tag), 'tags');
     } else {
       articlesCount = await getAllArticlesCount();
       if (query.page) {
@@ -39,17 +37,15 @@ export default class extends Component {
     const popularityArticles = await getPopularityArticles();
     const categories = await getAllCategories();
     const comments = await getCommentsForSidebar();
-    const tags = await getAllTags();
 
-    return { articles, categories, popularityArticles, comments, tags, lastArticles, articlesCount, currentPage, currentCategory }
+    return { articles, categories, popularityArticles, comments, lastArticles, articlesCount, currentPage, currentCategory }
   }
 
   render () {
 
-    const { articles, categories, popularityArticles, comments, tags, lastArticles, articlesCount, currentPage, currentCategory } = this.props
+    const { articles, categories, popularityArticles, comments, lastArticles, articlesCount, currentPage, currentCategory } = this.props
     return <Page
              categories={categories}
-             tags={tags}
              >
              <ArticlesReactive
               articles={articles}

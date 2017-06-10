@@ -3,7 +3,7 @@ import Meta from './meta'
 import Footer from './footer'
 import TopBar from './top-bar'
 
-const Page =  ({ categories, tags, children }) => (
+const Page =  ({ categories, children }) => (
   <div className="page-wrapper">
     <Meta />
     <TopBar />
@@ -16,9 +16,7 @@ const Page =  ({ categories, tags, children }) => (
         { children }
       </div>
     </div>
-    <Footer
-      tags={tags}
-      />
+    <Footer />
     <style jsx>{`
         .main {
           width: 1100px;

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import uuidV4 from 'uuid/v4';
 import base64 from 'base-64';
 
-export default ({tags}) => (
+export default () => (
   <footer>
     <div className="footer">
       <div className="left">
@@ -67,19 +67,6 @@ export default ({tags}) => (
               </a>
             </li>
           </ul>
-        </div>
-      </div>
-      <div className="left">
-        <h5 className="title">tags</h5>
-        <div className="tagcloud">
-          { tags !== null ? tags.map(tag => (
-            <a
-              href={`/?tag=${base64.encode(tag)}`}
-              key={uuidV4()}
-              >
-              {tag}
-            </a>
-          )) : <div />}
         </div>
       </div>
     </div>

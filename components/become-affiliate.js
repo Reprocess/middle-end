@@ -42,7 +42,7 @@ export default class extends Component {
     return (
       <div className="affiliate-container">
         <div className="headline">
-          <h2>become a traineffective athlete</h2>
+          <h2><span className="big-text">become a traineffective athlete</span><span className="small-text">become affiliate</span></h2>
         </div>
         <div className="breadcrumbs-w">
           <h3>
@@ -52,7 +52,7 @@ export default class extends Component {
               >
               <a>home </a>
             </Link>
-            » become a traineffective athlete</h3>
+            » <span className="big-text">become a traineffective athlete</span><span className="small-text">become affiliate</span></h3>
         </div>
         <div className="form-container">
           <form>
@@ -111,6 +111,14 @@ export default class extends Component {
           </form>
         </div>
         <style jsx>{`
+          .small-text {
+            display: none;
+          }
+
+          .big-text {
+            display: inline-block;
+          }
+
           .headline {
             width: 100%;
             padding: 14px 0;
@@ -221,6 +229,20 @@ export default class extends Component {
           .button:hover {
             border: none;
             background-color: #74b609;
+          }
+
+          @media (max-width: 767px) {
+            .small-text {
+              display: inline-block;
+            }
+
+            .big-text {
+              display: none;
+            }
+
+            .headline h2 {
+              font-size: 24px;
+            }
           }
 
         `}</style>

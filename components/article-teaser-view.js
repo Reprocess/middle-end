@@ -40,6 +40,7 @@ const ArticleTeaserView = ({ id, title, date, lead, author, teaser }) => (
       }
 
       .article-teaser-view__link img {
+        width: 100%;
         margin-bottom: 19px;
       }
 

@@ -16,9 +16,7 @@ export default () => (
     </div>
     <style jsx>{`
       .logo-container {
-        width: 1070px;
-        padding: 0 15px;
-        margin: 0;
+        padding-left: 15px;
       }
 
       img {
@@ -55,6 +53,28 @@ export default () => (
 
       .blog-logo {
         float: left;
+      }
+
+      @media (max-width: 1200px) {
+        .logo-container {
+          padding-left: 0px;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .logo-container {
+          height: 45px;
+        }
+
+        img {
+          max-height: 48px;
+          width: auto;
+          padding-left: 10px;
+        }
+
+        .blog-logo a {
+          line-height: 48px;
+        }
       }
     `}</style>
   </div>

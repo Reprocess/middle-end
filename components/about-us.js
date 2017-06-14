@@ -269,6 +269,35 @@ export default () => (
         background: #ff4f42;
       }
 
+      @media (max-width: 1200px) {
+        .about-us {
+          width: 920px;
+          margin: auto;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .about-us {
+          width: 728px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .about-us {
+          width: 380px;
+        }
+
+        .one-third {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 479px) {
+        .about-us {
+          width: 260px;
+        }
+      }
+
     `}</style>
   </div>
 )

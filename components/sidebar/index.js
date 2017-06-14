@@ -80,6 +80,34 @@ class Sidebar extends Component {
 						width: 300px;
 						height: 214px;
 					}
+
+					
+
+					@media (max-width: 1200px) {
+						.sidebar {
+							margin-left: 15px;
+						}
+					}
+
+					@media (max-width: 960px) {
+						.sidebar {
+							width: 33.33333333%;
+              margin-left: 0;
+						}
+					}
+
+          @media (max-width: 767px) {
+            .sidebar {
+              width: 400px;
+              padding: 0 10px;
+            }
+          }
+
+          @media (max-width: 479px) {
+            .sidebar {
+              width: 300px;
+            }
+          }
 				`}</style>
 			</div>
 		)

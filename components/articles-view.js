@@ -104,6 +104,7 @@ const ArticlesView = ({ articles, articlesCount, currentPage, currentCategory })
         }
 
         .page {
+          color: #0093d0;
           font-weight: bold;
           text-decoration: none;
           display: inline-block;
@@ -120,6 +121,33 @@ const ArticlesView = ({ articles, articlesCount, currentPage, currentCategory })
           border-color: #d2d2d2;
           color: #e84c3d;
           background: #fdfdfd;
+        }
+
+        @media (max-width: 1200px) {
+          .articles-list {
+            width: 594px;
+            padding: 0 5px;
+          }
+        }
+
+        @media (max-width: 960px) {
+          .articles-list {
+            width: 66.66666667%;
+            padding: 0 15px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .articles-list {
+            width: 400px;
+            padding: 0 10px;
+          }
+        }
+
+        @media (max-width: 479px) {
+          .articles-list {
+            width: 300px;
+          }
         }
       `}</style>
     </div>

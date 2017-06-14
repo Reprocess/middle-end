@@ -20,6 +20,24 @@ const TopBar = ({}) => (
         width: 1100px;
         margin: auto;
       }
+
+      @media (max-width: 1200px) {
+        .top-bar_container {
+          width: 940px;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .top-bar_container {
+          width: 748px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .top-bar {
+          display: none;
+        }
+      }
     `}</style>
   </div>
 );

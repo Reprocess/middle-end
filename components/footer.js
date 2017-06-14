@@ -300,6 +300,61 @@ export default () => (
       .footer-navi a:hover {
         text-decoration: underline;
       }
+
+      @media (max-width: 1200px) {
+        .footer {
+          width: 940px;
+        }
+
+        .footbot-container {
+          width: 940px;
+        }
+
+        .footbot-container .left, .footbot-container .right {
+          padding: 0;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .footer {
+          width: 748px;
+        }
+
+        .footer .left, .footer .right {
+          width: 100%;
+          padding: 0 10px;
+        }
+
+        .footbot-container {
+          width: 748px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .footer {
+          width: 420px;
+        }
+
+        .footbot-container {
+          width: 420px;
+        }
+
+        .footbot .left, .footbot .right {
+          float: none;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 479px) {
+        .footer {
+          width: 320px;
+        }
+
+        .footbot-container {
+          width: 320px;
+        }
+      }
     `}</style>
   </footer>
 )

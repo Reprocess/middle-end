@@ -49,10 +49,10 @@ export default () => (
     <div
       className="button-container">
       <Link
-        href="http://blog.traineffective.com/become-affiliate"
+        href="/become-affiliate"
         prefetch
         >
-        <a target="_blank" className="button">
+        <a className="button">
           Become a TrainEffective Athlete
         </a>
       </Link>
@@ -210,6 +210,12 @@ export default () => (
       .button:hover {
         background: #ff4f42;
         text-decoration: none;
+      }
+
+      @media (max-width: 767px) {
+        .half {
+          width: 100%;
+        }
       }
     `}</style>
   </div>

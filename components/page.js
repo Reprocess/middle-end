@@ -37,10 +37,31 @@ const Page =  ({ categories, children }) => (
           clear: both;
         }
 
-        @media (max-width: 750px) {
+        @media (max-width: 1200px) {
           .main {
-            padding: 0;
-            width: auto;
+            width: 920px;
+          }
+
+          .page {
+            padding: 35px 0 0 0;
+          }
+        }
+
+        @media (max-width: 960px) {
+          .main {
+            width: 748px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .main {
+            width: 400px;
+          }
+        }
+
+        @media (max-width: 479px) {
+          .main {
+            width: 300px;
           }
         }
       `}</style>
